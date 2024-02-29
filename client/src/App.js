@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import SignInPage from './SignInPage';
+import FirstPage from './FirstPage'; 
 
 function App() {
+  const [isSignInClicked, setIsSignInClicked] = useState(false);
+
+  const handleSignInClick = () => {
+    window.location.href = '/SignInPage';
+    setIsSignInClicked(true); 
+  };
+  let element = <FirstPage handleSignInClick={handleSignInClick} />;
+
+  if (isSignInClicked) {
+    element = <SignInPage />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Welcome to Bruin Pool!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Sign In
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element = {element}
+
+        />
+        <Route path="/SignInPage" element={<SignInPage />} />
+      </Routes>
+    </Router>
   );
 }
 
