@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg'; 
 import './FirstPage.css';
+import SignIn from './SignInPage.js'
 
 
 function FirstPage({ handleSignInClick }) {
@@ -32,7 +33,8 @@ function FirstPage({ handleSignInClick }) {
 	
 	<h1> BruinPool </h1>
 	<p>The only website to meet other carpooling college students!</p>
-	<a href="" class="hero-btn"> Sign In or Create a Free Account Today!</a>
+	<Link to="/SignInPage" className="hero-btn">Sign In or Create a Free Account Today!</Link>
+
 </div>
 	
 	</section>
