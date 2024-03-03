@@ -40,7 +40,7 @@ function FirstPage({ handleSignInClick }) {
 	</section>
 
 	<section class="course">
-  <h1>Courses We Offer</h1>
+  <h1>Join us Today!</h1>
   <p>We offer a lot lorgem ups si</p>
 
   <div class="row">
