@@ -181,3 +181,23 @@ h3{
     flex-direction: column;
   }
 }
+
+.campus{
+    width: 80%;
+    margin: auto;
+    text-align: auto;
+    padding-top: 50px;
+}
+
+.campus-col{
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.campus-col img{
+    width: 100%;
+    display: block;
+}

@@ -61,6 +61,33 @@ function FirstPage({ handleSignInClick }) {
   </div>
 </section>
 
+<section class="campus">
+
+<h1>Our Goals and Operation</h1>
+<p>What we're here to do. </p>
+<div class="row">
+  <div class="campus-col">
+    <img src="images/hammer.png"/>
+    <div class="layer">
+      <h3>Choose who you ride with</h3>
+    </div>
+  </div>
+  <div class="campus-col">
+    <img src="images/question.png"/>
+    <div class="layer">
+      <h3>Why Us?</h3>
+    </div>
+  </div>
+  <div class="campus-col">
+    <img src="images/handyman.png"/>
+    <div class="layer">
+      <h3>Your Price</h3>
+    </div>
+  </div>
+</div>
+
+</section>
+
 
 
 </body> 
