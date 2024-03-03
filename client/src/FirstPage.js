@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import logo from './logo.svg'; 
 import './FirstPage.css';
 import SignIn from './SignInPage.js'
+import logoImage from './images/logo.jpg'
+import happyCar from './images/happyCar.avif'
+import yourPrice from './images/yourPrice.png'
+import whyUs from './images/whyUs.avif'
+
 
 
 function FirstPage({ handleSignInClick }) {
@@ -12,7 +17,7 @@ function FirstPage({ handleSignInClick }) {
 <body>
 	<section class="header">
 		<nav>
-			<a> <img src="images/logo.png"/></a>
+			<a> <img src={logoImage} /></a>
 			<div class="nav-links" id="navLinks">
 				<i class="fa fa-times" onclick="hideMenu()"></i>
 				<ul>
@@ -67,24 +72,51 @@ function FirstPage({ handleSignInClick }) {
 <p>What we're here to do. </p>
 <div class="row">
   <div class="campus-col">
-    <img src="images/hammer.png"/>
+    <img src={happyCar}/>
     <div class="layer">
       <h3>Choose who you ride with</h3>
     </div>
   </div>
   <div class="campus-col">
-    <img src="images/question.png"/>
+    <img src={whyUs}/>
     <div class="layer">
       <h3>Why Us?</h3>
     </div>
   </div>
   <div class="campus-col">
-    <img src="images/handyman.png"/>
+    <img src={yourPrice}/>
     <div class="layer">
       <h3>Your Price</h3>
     </div>
   </div>
 </div>
+
+</section>
+
+<section class="facilities">
+  <h1>Our Community</h1>
+  <p>Lorgem ipsom dolor sit amet, consectetur adipiscing elit.</p>
+
+  <div class="row">
+    <div class="facilities-col">
+      <img src="images/library.jpg"/>
+      <h3>Miles Traveled</h3>
+      <p> Loren ipsum dolor sit amet, consectuatro adipisiceing elit. Pellenteseque aliquest turpis nulla.</p>
+
+    </div>
+    <div class="facilities-col">
+      <img src="images/tools.png"/>
+      <h3>Money Saved</h3>
+      <p> Loren ipsum dolor sit amet, consectuatro adipisiceing elit. Pellenteseque aliquest turpis nulla.</p>
+      
+    </div>
+    <div class="facilities-col">
+      <img src="images/availability.png"/>
+      <h3>Students Transported</h3>
+      <p> Loren ipsum dolor sit amet, consectuatro adipisiceing elit. Pellenteseque aliquest turpis nulla.</p>
+      
+    </div>
+  </div>
 
 </section>
 
