@@ -41,23 +41,27 @@ function FirstPage({ handleSignInClick }) {
 
 	<section class="course">
   <h1>Join us Today!</h1>
-  <p>We offer a lot lorgem ups si</p>
+  <p>Save money, time, and help the world become a better place!</p>
 
   <div class="row">
     <div class="course-col">
       <h3>Become a Driver!</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Are you looking to make your commute more cost-effective and environmentally friendly? Become a driver with our student carpool website and embark on a journey of convenience and camaraderie! Whether you have extra seats in your car or want to coordinate with fellow students to share rides, joining as a driver opens up opportunities to save money on gas and parking while reducing your carbon footprint. Sign up today to start connecting with passengers and contributing to a more sustainable transportation solution.
+</p>
     </div>
     <div class="course-col">
       <h3>Find Students!</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Tired of navigating campus traffic or relying solely on public transportation? Discover the perfect carpool companions through our student-centric platform! Whether you're a freshman searching for reliable transportation to classes or a graduate student seeking like-minded peers for shared rides, our website connects you with fellow students who share your schedule, route, and preferences. Forge new friendships, split costs, and streamline your commute by finding students just like you who are eager to collaborate on transportation solutions. Say goodbye to commuting woes and hello to a hassle-free journey with your newfound carpool community!
+</p>
     </div>
     <div class="course-col">
       <h3>Benefits!</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Unlock a myriad of benefits by participating in our student carpooling program! From financial savings to environmental impact reduction, there are countless advantages to sharing rides with your peers. By pooling resources, you can significantly cut down on commuting expenses such as gas, parking fees, and vehicle maintenance costs. Additionally, you'll reduce traffic congestion and lower carbon emissions, contributing to a cleaner and greener campus environment. Beyond the practical benefits, carpooling fosters a sense of community and fosters social connections among students, making your journey to campus more enjoyable and sustainable. Join us today to reap the rewards of collaborative transportation and make a positive impact on your campus and the planet!</p>
     </div>
   </div>
 </section>
+
+
 
 </body> 
   
