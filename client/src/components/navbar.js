@@ -1,0 +1,49 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './navbar.css'; // Make sure the path matches where you place the CSS file
+
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <NavLink to="/">
+        <img src={`${process.env.PUBLIC_URL}/logo192.png`} alt="Logo" />
+        </NavLink> {}
+      </div>
+      <ul className="nav-links">
+        <li>
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/requests" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Ride Requests
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/history" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Ride History
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/favorites" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Favorites
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/travel-suggestions" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Travel Suggestions
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/signin" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Sign In
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+export default Navbar;

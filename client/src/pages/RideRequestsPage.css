@@ -1,0 +1,20 @@
+.ride-requests-page {
+    padding: 20px;
+  }
+  
+  .ride-requests-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .ride-request {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .ride-request h2 {
+    margin-top: 0;
+  }
+  

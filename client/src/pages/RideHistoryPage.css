@@ -1,0 +1,20 @@
+.ride-history-page {
+    padding: 20px;
+  }
+  
+  .ride-history-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .ride-history-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .ride-history-item h2 {
+    margin-top: 0;
+  }
+  

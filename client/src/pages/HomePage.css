@@ -1,0 +1,33 @@
+.home-page {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .home-page h1 {
+    color: #333;
+  }
+  
+  .home-page p {
+    color: #666;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .actions {
+    margin-top: 30px;
+  }
+  
+  .offer-ride-btn, .request-ride-btn {
+    background-color: #04C2C9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .offer-ride-btn:hover, .request-ride-btn:hover {
+    background-color: #039DA6;
+  }
+  
