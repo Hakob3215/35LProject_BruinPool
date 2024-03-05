@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import RideRequestsPage from './pages/RideRequestsPage';
 import RideHistoryPage from './pages/RideHistoryPage';
 import FavoritesPage from './pages/FavoritesPage';
+import Friends from './pages/Friends'
 import TravelSuggestionsPage from './pages/TravelSuggestionsPage';
 import Navbar from './components/navbar';
 import './App.css'; // Ensure your global styles are here
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/requests" element={<RideRequestsPage />} />
         <Route path="/history" element={<RideHistoryPage />} />
+        <Route path="/Friends" element={<Friends />} />
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/travel-suggestions" element={<TravelSuggestionsPage />} />
         {/* Add more routes as needed */}
