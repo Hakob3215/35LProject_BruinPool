@@ -5,6 +5,7 @@ import './SignInPage.css'; // Make sure to create a corresponding CSS file
 function SignInPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -24,7 +25,15 @@ function SignInPage() {
       },
       body: JSON.stringify({ username, password }),
     }).then((response) => {
-      console.log(response);
+      response.json().then((data) => {
+        if (data){
+          setLoginError('');
+          // handle login here
+        } else {
+            setLoginError('We couldn’t find an account with that username and password. Please try again.');
+        }
+        }
+      )
     }).catch((error) => {
       console.error('Error:', error);
     });
@@ -34,6 +43,7 @@ function SignInPage() {
   };
 
   return (
+    <>
     <div className="signin-container">
       <form onSubmit={handleSubmit} className="signin-form">
         <h2>Sign In</h2>
@@ -58,8 +68,11 @@ function SignInPage() {
           />
         </div>
         <button type="submit" className="signin-button">Sign In</button>
+        {loginError && <p className="error-message">{loginError}</p>}
       </form>
     </div>
+    
+    </>
   );
 }
 

@@ -67,3 +67,10 @@
     color: #0056b3;
   }
   
+  .error-message {
+    color: red;
+    margin-top: 30px;
+    margin-bottom: 0px;
+
+  }
+  
