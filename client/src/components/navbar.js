@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './navbar.css'; // Make sure the path matches where you place the CSS file
+import './navbar.css';
 
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <NavLink to="/">
-        <img src={`${process.env.PUBLIC_URL}/logo192.png`} alt="Logo" />
+        <img src={process.env.PUBLIC_URL + '/BruinPooltemplogo.png'} alt="Logo" />
         </NavLink> {}
       </div>
       <ul className="nav-links">
@@ -37,8 +37,13 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/Friends" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Friends
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/signin" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Sign In
+            Sign In/Create an Account
           </NavLink>
         </li>
       </ul>
