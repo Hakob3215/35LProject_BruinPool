@@ -1,15 +1,30 @@
-const mongoDB = require('mongodb');
-const mongoClient = mongoDB.MongoClient;
+const mongoose = require('mongoose');
 
-console.log("code is running");
-const url = "mongodb+srv://hatajyan:xYc3A8BAY2K2PI2X@expressreacttest.gsec3af.mongodb.net/?retryWrites=true&w=majority";
-const client = new mongoClient(url);
-client.connect().then(() => {
-    console.log("Connected to the database: ");
-}).catch((err) => {
-    console.log("Error: ", err);
+mongoose.connect('mongodb+srv://bruinpool:mdjf8ElwBpfnEcYJ@bruinpoolcluster.em9znww.mongodb.net/userData?retryWrites=true&w=majority')
+.then(() => console.log('Database Connected'))
+.catch(err => console.log(err));
+
+
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+    name: String,
+    email: String,
+    password: String,
+
+    startTime: Number,
+    endTime: Number,
+    location: String,
+    date: Date
 });
 
-const db = client.db('testDB');
+const user = mongoose.model('user', userSchema);
 
-module.exports = db; // export the database connectiond
+
+const travelBlogSchema = new Schema({
+    title: String,
+    content: String,
+    date: Date
+});
+
+const travelBlog = mongoose.model('travelBlog', travelBlogSchema);
