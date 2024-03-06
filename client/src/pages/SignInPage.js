@@ -13,7 +13,22 @@ function SignInPage() {
       alert('Please fill in both fields.');
       return;
     }
-    // Here you would usually send the credentials to the backend for verification
+    // Here  send the credentials to the backend for verification
+    // using mongoose, fetch the username and password from the database
+    
+    // how to send the username and password to the backend?
+    fetch('/api/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error('Error:', error);
+    });
+
     console.log('Submitting', { username, password });
     // navigate('/home'); // Redirect to home page after successful login
   };
