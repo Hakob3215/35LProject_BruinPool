@@ -43,7 +43,12 @@ function Navbar() {
         </li>
         <li>
           <NavLink to="/signin" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Sign In/Create an Account
+            Sign In
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/signup" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Sign Up
           </NavLink>
         </li>
       </ul>

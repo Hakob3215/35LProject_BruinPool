@@ -4,15 +4,10 @@ import './HomePage.css'; // Assuming you have a CSS file for the HomePage stylin
 
 function HomePage() {
   const navigate = useNavigate();
-
-  const handleOfferRide = () => {
-    // Navigate to the page where users can offer a ride
-    navigate('/offer-ride');
-  };
-
-  const handleRequestRide = () => {
+  
+  const handleScheduleRide = () => {
     // Navigate to the page where users can request a ride
-    navigate('/request-ride');
+    navigate('/Schedule-ride');
   };
 
   return (
@@ -21,8 +16,7 @@ function HomePage() {
       <p>Your go-to platform for carpooling with fellow college students.</p>
       
       <div className="actions">
-        <button onClick={handleOfferRide} className="offer-ride-btn">Offer a Ride</button>
-        <button onClick={handleRequestRide} className="request-ride-btn">Request a Ride</button>
+        <button onClick={handleScheduleRide} className="schedule-ride-btn">Schedule a Ride</button>
       </div>
 
       {/* Optionally, add more content here such as featured rides, blog posts, etc. */}
