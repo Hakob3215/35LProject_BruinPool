@@ -7,6 +7,7 @@ import RideRequestsPage from './pages/RideRequestsPage';
 import RideHistoryPage from './pages/RideHistoryPage';
 import FavoritesPage from './pages/FavoritesPage';
 import Friends from './pages/Friends'
+import FirstPage from './pages/FirstPage'
 import TravelSuggestionsPage from './pages/TravelSuggestionsPage';
 import Navbar from './components/navbar';
 import './App.css'; // Ensure your global styles are here
@@ -14,16 +15,8 @@ import './App.css'; // Ensure your global styles are here
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/requests" element={<RideRequestsPage />} />
-        <Route path="/history" element={<RideHistoryPage />} />
-        <Route path="/Friends" element={<Friends />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/travel-suggestions" element={<TravelSuggestionsPage />} />
+        <Route path="/" element  = {<FirstPage />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>

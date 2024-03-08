@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end; /* Adjust the alignment as needed */
   background-color: #333;
   color: white;
   padding: 0 10px; /* Adjust the padding as needed */
@@ -11,7 +11,7 @@
 .navbar-logo {
   display: flex;
   align-items: center;
-  margin-top: 10px; /* Adjust the margin-top as needed */
+  margin-top: 20px; /* Adjust the margin-top as needed */
 }
 
 .navbar-logo a {
