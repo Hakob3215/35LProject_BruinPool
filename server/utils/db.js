@@ -19,7 +19,7 @@ const userSchema = new Schema({
 const travelBlogSchema = new Schema({
     title: String,
     content: String,
-    date: Date
+    date: {type: Date, default: Date.now},
 });
 
 const chatLogSchema = new Schema({
@@ -35,4 +35,6 @@ const user = mongoose.model('user', userSchema);
 
 const travelBlog = mongoose.model('travelBlog', travelBlogSchema);
 
-module.exports = {user, travelBlog, chatLogSchema};
+const chatLogs = mongoose.model("chatLog", chatLogSchema);
+
+module.exports = {user, travelBlog, chatLogs};

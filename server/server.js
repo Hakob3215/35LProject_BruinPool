@@ -4,6 +4,7 @@ const db = require('./utils/db');
 
 userModel = db.user;
 travelBlogModel = db.travelBlog;
+chatLogModel = db.chatLogs;
 
 const port = 5000;
 
