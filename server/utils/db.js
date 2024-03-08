@@ -23,17 +23,16 @@ const travelBlogSchema = new Schema({
 });
 
 const chatLogSchema = new Schema({
-    //TBA
+    users: [{ type: Schema.Types.ObjectId, ref: 'user' }],
+    messages: [{
+        sender: { type: Schema.Types.ObjectId, ref: 'user' },
+        content: String,
+        timestamp: { type: Date, default: Date.now }
+    }]
 });
 
 const user = mongoose.model('user', userSchema);
 
 const travelBlog = mongoose.model('travelBlog', travelBlogSchema);
 
-module.exports = {user, travelBlog};
-
-let newUser = new user({
-    username: 'test',
-    email: 'test@email.com',
-    password: 'test'
-});
+module.exports = {user, travelBlog, chatLogSchema};
