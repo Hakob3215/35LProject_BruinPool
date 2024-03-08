@@ -6,9 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <NavLink to="/">
         <img src={process.env.PUBLIC_URL + '/BruinPooltemplogo.png'} alt="Logo" />
-        </NavLink> {}
       </div>
       <ul className="nav-links">
         <li>

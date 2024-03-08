@@ -7,12 +7,14 @@ function SignUpPage() {
   const navigate = useNavigate();
   // State for form inputs
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [fullName, setfullName] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Implement registration logic here, possibly using authService.signUp(...)
-    console.log('Registering:', { username, password });
+    console.log('Registering:', { username, email, fullName, password });
     // On successful registration, you might want to navigate to the sign-in page
     navigate('/newaccountcreated'); // Redirect to Newaccountcreated page
   };
@@ -29,6 +31,28 @@ function SignUpPage() {
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={username}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="username">Full Name:</label>
+          <input
+            type="text"
+            id="full-name"
+            name="full-name"
+            value={fullName}
+            onChange={(e) => setfullName(e.target.value)}
             required
           />
         </div>
