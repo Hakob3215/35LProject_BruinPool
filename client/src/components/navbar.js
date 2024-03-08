@@ -12,7 +12,7 @@ function Navbar() {
       </div>
       <ul className="nav-links">
         <li>
-          <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+          <NavLink to="/Home" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
             Home
           </NavLink>
         </li>
@@ -37,18 +37,8 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Friends" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Friends
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/signin" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Sign In
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/signup" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Sign Up
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Sign Out
           </NavLink>
         </li>
       </ul>

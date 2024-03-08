@@ -6,7 +6,12 @@ function TravelSuggestionsPage() {
 
   useEffect(() => {
     // Placeholder for fetching travel suggestions from the backend
-    fetch('/api/travel-suggestions')
+    fetch('/api/travel-suggestions',{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
       .then(response => response.json())
       .then(data => setTravelSuggestions(data))
       .catch(error => console.error('Error fetching travel suggestions:', error));
@@ -18,9 +23,10 @@ function TravelSuggestionsPage() {
       {travelSuggestions.length > 0 ? (
         <div className="suggestions-list">
           {travelSuggestions.map(suggestion => (
-            <div key={suggestion.id} className="suggestion-item">
+            <div key={suggestion._id} className="suggestion-item">
               <h2>{suggestion.title}</h2>
-              <p>{suggestion.summary}</p>
+              <h5>{(new Date(suggestion.date).toLocaleString())}</h5>
+              <p>{suggestion.content}</p>
               {/* Additional details or a link to the full post could go here */}
             </div>
           ))}

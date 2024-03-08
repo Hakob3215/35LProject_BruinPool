@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './FirstPage.css';
-import SignIn from '../SignInPage.js'
+import SignIn from './SignInPage.js'
+import SignUp from './SignUpPage.js'
+
 import logoImage from './images/logo.jpg'
 import happyCar from './images/happyCar.avif'
 import yourPrice from './images/yourPrice.png'
@@ -12,6 +14,7 @@ import review2 from './images/review2.png'
 
 
 function FirstPage({ handleSignInClick }) {
+
   return (
 
 
@@ -39,7 +42,12 @@ function FirstPage({ handleSignInClick }) {
 	
 	<h1> BruinPool </h1>
 	<p>The only website to meet other carpooling college students!</p>
-	<Link to="/SignInPage" className="hero-btn">Sign In or Create a Free Account Today!</Link>
+  <div>
+	<Link to="/SignIn" className="SignIn-btn">Sign In!</Link>
+  </div>
+  <div>
+  <Link to="/SignUp" className="SignUp-btn">Create a Free Account today!</Link>
+  </div>
 
 </div>
 	
