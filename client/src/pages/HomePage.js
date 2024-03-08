@@ -17,7 +17,7 @@ function HomePage() {
   return (
 
     <div className="home-page">
-      <h1>Welcome {user.username}, to BruinPool!</h1>
+      <h1>Welcome to BruinPool, {user.username}!</h1>
       <p>Your go-to platform for carpooling with fellow college students.</p>
       
       <div className="actions">

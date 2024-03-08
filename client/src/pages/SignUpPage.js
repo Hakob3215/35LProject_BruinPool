@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 import './SignUpPage.css'; 
-import './Newaccountcreated.js';
+import './SignInPage.js';
 
 function SignUpPage() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ function SignUpPage() {
           break;
         case 203:
           setLoginError('');
-          navigate('/Newaccountcreated');
+          navigate('/SignIn')
           break;
         case 204:
           setLoginError('Invalid email!');
