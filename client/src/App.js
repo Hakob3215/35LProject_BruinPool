@@ -17,6 +17,14 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element  = {<FirstPage />} />
+        <Route path="/SignIn" element={<SignInPage />} />
+        <Route path="/SignUp" element={<SignUpPage />} />
+        <Route path="/requests" element={<RideRequestsPage />} />
+        <Route path="/history" element={<RideHistoryPage />} />
+        <Route path="/Friends" element={<Friends />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/travel-suggestions" element={<TravelSuggestionsPage />} />
+
         {/* Add more routes as needed */}
       </Routes>
     </Router>

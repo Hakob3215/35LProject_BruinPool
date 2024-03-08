@@ -73,10 +73,22 @@ nav img{
     font-size:  14px;
     color: #fff;
 }
-.hero-btn{
+.SignIn-btn{
     display: inline-block;
     text-decoration: none;
-    color: #fff;
+    color: #f9f9f9;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background:  transparent;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 20px; 
+}
+.SignUp-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #f9f9f9;
     border: 1px solid #fff;
     padding: 12px 34px;
     font-size: 13px;
@@ -84,7 +96,15 @@ nav img{
     position: relative;
     cursor: pointer;
 }
-.hero-btn:hover{
+
+.SignIn-btn:hover{
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+
+
+}
+.SignUp-btn:hover{
     border: 1px solid #f44336;
     background: #f44336;
     transition: 1s;
