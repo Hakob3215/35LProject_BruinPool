@@ -11,11 +11,14 @@ import FirstPage from './pages/FirstPage'
 import TravelSuggestionsPage from './pages/TravelSuggestionsPage';
 import NewAccountCreated from './pages/Newaccountcreated';
 import Navbar from './components/navbar';
+
 import './App.css'; // Ensure your global styles are here
+import { UserProvider } from './UserContext';
 
 function App() {
   return (
     <Router>
+      <UserProvider>
       <Routes>
         <Route path="/" element  = {<FirstPage />} />
         <Route path="/SignIn" element={<SignInPage />} />
@@ -29,6 +32,7 @@ function App() {
         <Route path="/travel-suggestions" element={<> <Navbar /><TravelSuggestionsPage/> </>} />
         {/* Add more routes as needed */}
       </Routes>
+      </UserProvider>
     </Router>
   );
 }

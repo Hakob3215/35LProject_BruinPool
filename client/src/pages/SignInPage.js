@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 import './SignInPage.css'; // Make sure to create a corresponding CSS file
 import './HomePage.js';
@@ -7,6 +8,7 @@ function SignInPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState("");
+  const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -29,8 +31,8 @@ function SignInPage() {
       response.json().then((data) => {
         if (data){
           setLoginError('');
+          setUser(data); // This is the user object received from the backend, saved in the context
           navigate('/Home');
-          // handle login here
         } else {
             setLoginError('We couldn’t find an account with that username and password. Please try again.');
         }

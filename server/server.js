@@ -32,9 +32,14 @@ app.post('/api/users/login', (req, res) => {
         if (err){
           console.log(err);
         }
-        // if the password is correct, send a truth response to the client
+        // if the password is correct, send the non-sensitive corresponding user data to the client
         if (result){
-          res.send(true);
+          let userObj = {
+            username: user.username,
+            email: user.email,
+            fullname: user.fullname
+          }
+          res.send(userObj);
         } else{
           // else send a falsehood response to the client
           res.send(false);
