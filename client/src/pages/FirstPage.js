@@ -8,6 +8,8 @@ import logoImage from './images/logo.jpg'
 import happyCar from './images/happyCar.avif'
 import yourPrice from './images/yourPrice.png'
 import whyUs from './images/whyUs.avif'
+import review1 from './images/review1.png'
+import review2 from './images/review2.png'
 
 
 
@@ -58,20 +60,22 @@ function FirstPage({ handleSignInClick }) {
   <div class="row">
     <div class="course-col">
       <h3>Become a Driver!</h3>
-      <p>Are you looking to make your commute more cost-effective and environmentally friendly? Become a driver with our student carpool website and embark on a journey of convenience and camaraderie! Whether you have extra seats in your car or want to coordinate with fellow students to share rides, joining as a driver opens up opportunities to save money on gas and parking while reducing your carbon footprint. Sign up today to start connecting with passengers and contributing to a more sustainable transportation solution.
+      <p> Join our student carpool platform to make your commute cost-effective and eco-friendly. Whether you have extra seats or need a ride, become a driver to save on gas, parking, and reduce your carbon footprint. Sign up now to connect with fellow students and contribute to sustainable transportation.
 </p>
     </div>
     <div class="course-col">
       <h3>Find Students!</h3>
-      <p>Tired of navigating campus traffic or relying solely on public transportation? Discover the perfect carpool companions through our student-centric platform! Whether you're a freshman searching for reliable transportation to classes or a graduate student seeking like-minded peers for shared rides, our website connects you with fellow students who share your schedule, route, and preferences. Forge new friendships, split costs, and streamline your commute by finding students just like you who are eager to collaborate on transportation solutions. Say goodbye to commuting woes and hello to a hassle-free journey with your newfound carpool community!
+      <p>Escape campus traffic and public transport hassles by connecting with carpool companions on our student platform. Whether you're a freshman or a graduate student, find like-minded peers to share rides, split costs, and streamline your commute. Say goodbye to commuting woes and join a hassle-free carpool community today!
 </p>
     </div>
     <div class="course-col">
       <h3>Benefits!</h3>
-      <p>Unlock a myriad of benefits by participating in our student carpooling program! From financial savings to environmental impact reduction, there are countless advantages to sharing rides with your peers. By pooling resources, you can significantly cut down on commuting expenses such as gas, parking fees, and vehicle maintenance costs. Additionally, you'll reduce traffic congestion and lower carbon emissions, contributing to a cleaner and greener campus environment. Beyond the practical benefits, carpooling fosters a sense of community and fosters social connections among students, making your journey to campus more enjoyable and sustainable. Join us today to reap the rewards of collaborative transportation and make a positive impact on your campus and the planet!</p>
+      <p>Join our student carpool program for financial savings, reduced environmental impact, and a sense of community. Cut commuting expenses, lower emissions, and connect with fellow students for a sustainable and enjoyable campus journey. Join today and make a positive impact on your campus and the planet!</p>
     </div>
   </div>
 </section>
+
+
 
 <section class="campus">
 
@@ -102,25 +106,22 @@ function FirstPage({ handleSignInClick }) {
 
 <section class="facilities">
   <h1>Our Community</h1>
-  <p>Lorgem ipsom dolor sit amet, consectetur adipiscing elit.</p>
+  <p>Join thousand of students just like you!</p>
 
   <div class="row">
     <div class="facilities-col">
-      <img src="images/library.jpg"/>
       <h3>Miles Traveled</h3>
-      <p> Loren ipsum dolor sit amet, consectuatro adipisiceing elit. Pellenteseque aliquest turpis nulla.</p>
+      <p> Over 63,000 miles travled by students!</p>
 
     </div>
     <div class="facilities-col">
-      <img src="images/tools.png"/>
       <h3>Money Saved</h3>
-      <p> Loren ipsum dolor sit amet, consectuatro adipisiceing elit. Pellenteseque aliquest turpis nulla.</p>
+      <p> $35,000 in gas saved!</p>
       
     </div>
     <div class="facilities-col">
-      <img src="images/availability.png"/>
       <h3>Students Transported</h3>
-      <p> Loren ipsum dolor sit amet, consectuatro adipisiceing elit. Pellenteseque aliquest turpis nulla.</p>
+      <p> Join nearly 3,500 students using BruinPool!</p>
       
     </div>
   </div>
@@ -129,8 +130,45 @@ function FirstPage({ handleSignInClick }) {
 
 
 
-</body> 
+
+<section class="testimonials">
+<h1>What our clients say</h1>
+<p> Don't just listen to us, read our thousands of 5 star reviews!</p>
+  <div class="row">
+  <div class="testimonial-col">
+    <img src={review1}/>
+    <div>
+      <p>Amazing and simple service! Will definitely use again. </p>
+      <h3>Ahmed Abbdulah</h3>
   
+    </div>
+  </div>
+  <div class="testimonial-col">
+    <img src={review2}/>
+    <div>
+      <p> Iconic service with amazing people!</p>
+      <h3>Alexa Fosani</h3>
+ 
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta">
+  <h1>We can take you anywhere, as long as we find a carpooler!</h1>
+  <a href="">Contact us!</a>
+
+
+</section>
+
+<section class="footer">
+  <h4>About Us</h4>
+  <p>We're just four students trying to help other save money, while doing good for our Earth at the same time. </p>
+
+</section>
+
+</body>  
 
 
 
