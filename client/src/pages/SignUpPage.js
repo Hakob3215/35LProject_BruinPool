@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignUpPage.css'; // Make sure this path matches where you place the CSS file
+import './SignUpPage.css'; 
+import './Newaccountcreated.js';
 
 function SignUpPage() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function SignUpPage() {
     // Implement registration logic here, possibly using authService.signUp(...)
     console.log('Registering:', { username, password });
     // On successful registration, you might want to navigate to the sign-in page
-    // navigate('/signin');
+    navigate('/newaccountcreated'); // Redirect to Newaccountcreated page
   };
 
   return (

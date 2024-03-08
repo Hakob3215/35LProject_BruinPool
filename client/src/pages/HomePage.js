@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css'; // Assuming you have a CSS file for the HomePage styling
 
+
 function HomePage() {
   const navigate = useNavigate();
   
@@ -11,6 +12,7 @@ function HomePage() {
   };
 
   return (
+
     <div className="home-page">
       <h1>Welcome to BruinPool!</h1>
       <p>Your go-to platform for carpooling with fellow college students.</p>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignInPage.css'; // Make sure to create a corresponding CSS file
+import './HomePage.js';
 
 function SignInPage() {
   const [username, setUsername] = useState('');
@@ -28,6 +29,7 @@ function SignInPage() {
       response.json().then((data) => {
         if (data){
           setLoginError('');
+          navigate('/HomePage')
           // handle login here
         } else {
             setLoginError('We couldn’t find an account with that username and password. Please try again.');
