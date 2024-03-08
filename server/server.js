@@ -1,4 +1,7 @@
 const express = require('express');
+const validator = require('validator');
+const bcrypt = require('bcrypt');
+
 const app = express();
 const db = require('./utils/db');
 
@@ -10,21 +13,33 @@ const port = 5000;
 
 app.use(express.json());
 
+
+// handle login request
 app.post('/api/users/login', (req, res) => {
   // check if request is received
-  console.log('Holy moly, it worked!');
+  console.log('Sign In request received');
   // check if the data is correctly received
   console.log(req.body.username, req.body.password);
   // check if the corresponding user exists in the database
   userModel.findOne({
     username: req.body.username,
-    password: req.body.password
   }).then((user) => {
     // if successful, check if the user exists
     if (user){
-      // if the user exists, send a truth response to the client
+      // if the user exists, check if the password is correct
       console.log('User found');
-      res.send(true);
+      bcrypt.compare(req.body.password, user.password, (err, result) => {
+        if (err){
+          console.log(err);
+        }
+        // if the password is correct, send a truth response to the client
+        if (result){
+          res.send(true);
+        } else{
+          // else send a falsehood response to the client
+          res.send(false);
+        }
+      });
     } else{
       // else send a falsehood response to the client
       console.log('User not found');
@@ -36,7 +51,7 @@ app.post('/api/users/login', (req, res) => {
   });
 });
 
-
+// handle travel request page opening
 app.get('/api/travel-suggestions', (req, res) => {
   // Check request received
   console.log('Travel suggestions requested');
@@ -58,6 +73,71 @@ app.get('/api/travel-suggestions', (req, res) => {
   });
 });
 
+// handle sign up request
+app.post('/api/users/signup', async (req, res) => {
+  console.log('Sign Up request received');
+  let usertaken = false;
+  let emailtaken = false;
+  await userModel.findOne({
+    username: req.body.username
+  }).then((user) => {
+    if(user){
+      usertaken = true;
+    }
+  }).catch((err) => {
+    console.log(err);
+  });
+
+  await userModel.findOne({
+    email: req.body.email
+  }).then((email) => {
+    if(email){
+      emailtaken = true;
+    }
+  }).catch((err) => {
+    console.log(err);
+  });
+
+  // response codes:
+  // 200: user exists
+  // 201: email exists
+  // 202: both exist
+  // 203: neither exist, create user
+
+  // 204: invalid email
+
+  if (usertaken && emailtaken) {
+    res.sendStatus(202);
+    return;
+  }
+  if (usertaken) {
+    res.sendStatus(200);
+    return;
+  }
+  if (emailtaken) {
+    res.sendStatus(201);
+    return;
+  }
+
+  // check if the email is valid
+  if (!validator.isEmail(req.body.email)) {
+    res.sendStatus(204);
+    return;
+  }
+
+  let newUser = new userModel({
+    username: req.body.username,
+    email: req.body.email,
+    fullname: req.body.fullname,
+    password: req.body.password
+  });
+  newUser.save().then(() => {
+    console.log('User created');
+    res.sendStatus(203);
+  }).catch((err) => {
+    console.log(err);
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

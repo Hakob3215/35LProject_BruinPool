@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const Schema = mongoose.Schema;
 
 mongoose.connect('mongodb+srv://bruinpool:mdjf8ElwBpfnEcYJ@bruinpoolcluster.em9znww.mongodb.net/userData?retryWrites=true&w=majority')
@@ -8,12 +10,25 @@ mongoose.connect('mongodb+srv://bruinpool:mdjf8ElwBpfnEcYJ@bruinpoolcluster.em9z
 const userSchema = new Schema({
     username: {type: String, required: true, unique: true},
     email: {type: String, required: true, unique: true},
+    fullname: {type: String, required: true},
     password: {type: String, required: true},
 
     startTime: {type: Number, default: null},
     endTime: {type: Number, default: null},
     location: {type: String, default: null},
     date: {type: Date, default: null}
+});
+
+userSchema.pre('save', function(next) {
+    if(this.password && this.isNew){
+        bcrypt.hash(this.password, saltRounds, (err, hash) => {
+            if(err){
+                return next(err);
+            }
+            this.password = hash;
+            next();
+        })
+    }
 });
 
 const travelBlogSchema = new Schema({

@@ -29,7 +29,7 @@ function SignInPage() {
       response.json().then((data) => {
         if (data){
           setLoginError('');
-          navigate('/HomePage')
+          navigate('/Home');
           // handle login here
         } else {
             setLoginError('We couldn’t find an account with that username and password. Please try again.');
@@ -41,7 +41,7 @@ function SignInPage() {
     });
 
     console.log('Submitting', { username, password });
-    // navigate('/home'); // Redirect to home page after successful login
+  
   };
 
   return (

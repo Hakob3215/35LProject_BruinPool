@@ -8,15 +8,51 @@ function SignUpPage() {
   // State for form inputs
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [fullName, setfullName] = useState('');
+  const [fullname, setfullname] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState("");
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Implement registration logic here, possibly using authService.signUp(...)
-    console.log('Registering:', { username, email, fullName, password });
-    // On successful registration, you might want to navigate to the sign-in page
-    navigate('/newaccountcreated'); // Redirect to Newaccountcreated page
+    
+    // check if the username, or email, has already been taken/used
+    // if it has, return an error message
+    
+    fetch('/api/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, fullname, password })
+    }).then((response) => {
+      // response is a status code
+      // 200: user exists
+      // 201: email exists
+      // 202: both exist
+      // 203: neither exist, create user
+      switch (response.status) {
+        case 200:
+          setLoginError('Username already taken!');
+          break;
+        case 201:
+          setLoginError('Email already taken!');
+          break;
+        case 202:
+          setLoginError('Username and email already taken!');
+          break;
+        case 203:
+          setLoginError('');
+          navigate('/Newaccountcreated');
+          break;
+        case 204:
+          setLoginError('Invalid email!');
+          break;
+        default:
+          alert('Error: Non 200 status code');
+      }}).catch((error) => {
+      console.error('Error:', error);
+    });
   };
 
   return (
@@ -40,19 +76,19 @@ function SignUpPage() {
             type="text"
             id="email"
             name="email"
-            value={username}
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="username">Full Name:</label>
+          <label htmlFor="fullname">Full Name:</label>
           <input
             type="text"
             id="full-name"
             name="full-name"
-            value={fullName}
-            onChange={(e) => setfullName(e.target.value)}
+            value={fullname}
+            onChange={(e) => setfullname(e.target.value)}
             required
           />
         </div>
@@ -68,6 +104,7 @@ function SignUpPage() {
           />
         </div>
         <button type="submit" className="signup-button">Register</button>
+        {loginError && <p className="error-message">{loginError}</p>}
       </form>
     </div>
   );
