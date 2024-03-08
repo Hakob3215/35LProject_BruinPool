@@ -25,7 +25,11 @@ function TravelSuggestionsPage() {
           {travelSuggestions.map(suggestion => (
             <div key={suggestion._id} className="suggestion-item">
               <h2>{suggestion.title}</h2>
-              <h5>{(new Date(suggestion.date).toLocaleString())}</h5>
+              <h5>{(new Date(suggestion.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                }))}, {(new Date(suggestion.date).toLocaleTimeString())}</h5>
               <p>{suggestion.content}</p>
               {/* Additional details or a link to the full post could go here */}
             </div>
