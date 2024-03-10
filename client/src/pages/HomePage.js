@@ -13,7 +13,6 @@ function HomePage() {
 useEffect(() => {
   if (!user) {
     navigate('/SignIn');
-  return null;
   }
 }, [user, navigate]);
 
