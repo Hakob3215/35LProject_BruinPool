@@ -37,7 +37,7 @@ function Navbar() {
           </NavLink>
         </li>
         <li className = "welcome-message">
-          Welcome, {user.username}
+          Welcome, {user ? user.username : "ERR"}
         </li>
       </ul>
     </nav>
