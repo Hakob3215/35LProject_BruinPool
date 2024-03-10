@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,15 @@ import './HomePage.css'; // Assuming you have a CSS file for the HomePage stylin
 function HomePage() {
   const navigate = useNavigate();
   const {user} = useContext(UserContext);
-  
+
+
+useEffect(() => {
+  if (!user) {
+    navigate('/SignIn');
+  return null;
+  }
+}, [user, navigate]);
+
   const handleScheduleRide = () => {
     // Navigate to the page where users can request a ride
     navigate('/Schedule-ride');
@@ -17,7 +25,7 @@ function HomePage() {
   return (
 
     <div className="home-page">
-      <h1>Welcome to BruinPool, {user.username}!</h1>
+      <h1>Welcome to BruinPool, {user ? user.username : "ERR"}!</h1>
       <p>Your go-to platform for carpooling with fellow college students.</p>
       
       <div className="actions">
