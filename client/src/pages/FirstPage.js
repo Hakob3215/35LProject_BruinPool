@@ -21,15 +21,10 @@ function FirstPage({ handleSignInClick }) {
 <body>
 	<section class="header">
 		<nav>
-			<a> <img src={logoImage} /></a>
+			<a> <img id = "logo" src={logoImage} /></a>
 			<div class="nav-links" id="navLinks">
 				<i class="fa fa-times" onclick="hideMenu()"></i>
-				<ul>
-					<li><a href="">HOME</a></li>
-					<li><a href="">ABOUT</a></li>
-          <li><a href="">STUDENTS</a></li>
 
-				</ul>
 
 			</div>
 

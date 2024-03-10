@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 
-import './HomePage.css'; // Assuming you have a CSS file for the HomePage styling
+import './HomePage.css'; 
 
 
 function HomePage() {
@@ -17,14 +17,13 @@ function HomePage() {
   return (
 
     <div className="home-page">
-      <h1>Welcome {user.username}, to BruinPool!</h1>
+      <h1>Welcome {user.fullname}, to BruinPool!</h1>
       <p>Your go-to platform for carpooling with fellow college students.</p>
       
       <div className="actions">
         <button onClick={handleScheduleRide} className="schedule-ride-btn">Schedule a Ride</button>
       </div>
 
-      {/* Optionally, add more content here such as featured rides, blog posts, etc. */}
     </div>
   );
 }

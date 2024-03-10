@@ -1,6 +1,9 @@
 .travel-suggestions-page {
     padding: 20px;
   }
+.travel-suggestions-page h1 {
+  text-align: center;
+}
   
   .suggestions-list {
     display: grid;
@@ -14,6 +17,7 @@
     padding: 20px;
   }
   
+
   .suggestion-item h2 {
     margin-top: 0;
   }

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { NavLink } from 'react-router-dom';
+import { UserContext } from '../UserContext';
 import './navbar.css';
 
 function Navbar() {
+  const {user} = useContext(UserContext);
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src={process.env.PUBLIC_URL + '/BruinPooltemplogo.png'} alt="Logo" />
+      <img src={process.env.PUBLIC_URL + '/publiclogo.png'} alt="Logo" />
       </div>
       <ul className="nav-links">
         <li>
@@ -15,18 +17,8 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/requests" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Ride Requests
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/history" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Ride History
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/favorites" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Favorites
+          <NavLink to="/Schedule-ride" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Schedule Ride
           </NavLink>
         </li>
         <li>
@@ -35,9 +27,17 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/travel-suggestions" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+            Message Center
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
             Sign Out
           </NavLink>
+        </li>
+        <li className = "welcome-message">
+          Welcome, {user.username}
         </li>
       </ul>
     </nav>
