@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react';
-import { UserContext } from '../UserContext';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUpPage.css'; 
 import './SignInPage.js';
