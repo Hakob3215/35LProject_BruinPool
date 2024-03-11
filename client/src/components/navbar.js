@@ -34,7 +34,7 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/travel-suggestions" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+          <NavLink to="/message-center" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
             Message Center
           </NavLink>
         </li>
