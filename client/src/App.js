@@ -4,10 +4,13 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
 import RideRequestsPage from './pages/RideRequestsPage';
-
+import RideHistoryPage from './pages/RideHistoryPage';
+import FavoritesPage from './pages/FavoritesPage';
+import Friends from './pages/Friends'
 import FirstPage from './pages/FirstPage'
 import TravelSuggestionsPage from './pages/TravelSuggestionsPage';
-
+import NewAccountCreated from './pages/Newaccountcreated';
+import MessageCenterPage from './pages/MessageCenterPage';
 import Navbar from './components/navbar';
 
 import './App.css'; // Ensure your global styles are here
@@ -21,9 +24,15 @@ function App() {
         <Route path="/" element  = {<FirstPage />} />
         <Route path="/SignIn" element={<SignInPage />} />
         <Route path="/SignUp" element={<SignUpPage />} />
-        <Route path="/Home" element={<> <Navbar />  <HomePage /> </> }/>
+        <Route path="/Newaccountcreated" element={<NewAccountCreated/>} />
+        <Route path="/Home" element={<> <Navbar />  <HomePage/> </> }/>
         <Route path="/requests" element={<> <Navbar />  <RideRequestsPage/> </>} />
+        <Route path="/history" element={<> <Navbar /><RideHistoryPage/> </>} />
+        <Route path="/Friends" element={<> <Navbar /><Friends/> </>} />
+        <Route path="/favorites" element={<> <Navbar /> <FavoritesPage/> </>} />
         <Route path="/travel-suggestions" element={<> <Navbar /><TravelSuggestionsPage/> </>} />
+        <Route path="/message-center" element={<> <Navbar /><MessageCenterPage/> </>} />
+
         {/* Add more routes as needed */}
       </Routes>
       </UserProvider>
