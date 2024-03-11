@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+<<<<<<< Updated upstream
 import './index.css'; // Global styles
+=======
+>>>>>>> Stashed changes
 import App from './App';
 
 
