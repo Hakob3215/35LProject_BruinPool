@@ -7,18 +7,13 @@ import './HomePage.css';
 
 function HomePage() {
   const navigate = useNavigate();
-  const {user, setUser} = useContext(UserContext);
-
+  const {user} = useContext(UserContext);
 
   useEffect(() => {
-    if (!user){
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    setUser(storedUser);
-    if (!storedUser) {
+    if (!user) {
       navigate('/SignIn');
     }
-  }
-  }, [user, navigate, setUser]);
+  }, [user, navigate]);
   
   const handleScheduleRide = () => {
     // Navigate to the page where users can request a ride
