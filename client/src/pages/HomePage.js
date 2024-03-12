@@ -29,7 +29,7 @@ function HomePage() {
     if(!user){
       const storedUser = JSON.parse(localStorage.getItem('user'));
       setUser(storedUser);
-      if(!storedUser){
+      if(!user){
         navigate('/SignIn');
       }
     }
