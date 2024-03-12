@@ -144,6 +144,22 @@ app.post('/api/users/signup', async (req, res) => {
   });
 });
 
+// handle new posts
+app.post('/api/travelposts', async (req, res) => {
+  console.log("Request received");
+  let newPost = new travelBlogModel({
+    title: req.body.title,
+    content: req.body.content,
+    date: new Date()
+  });
+  newPost.save().then(() => {
+    console.log('Post saved');
+    res.send(true);
+  }).catch((err) => {
+    console.log(err);
+  });
+});
+
 // handle ride request search
 
 app.post('/api/rides/search', (req, res) => {

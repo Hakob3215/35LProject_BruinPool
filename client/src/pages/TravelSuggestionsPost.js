@@ -10,6 +10,22 @@ function TravelSuggestionsPost() {
     event.preventDefault();
     // Placeholder for handling form submission
     console.log('Form submitted:', { title, content });
+
+    fetch('/api/travelposts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title, content }),
+    }).then((response) => {
+      response.json().then((data) => {
+        console.log(data);
+        }
+      )
+    }).catch((error) => {
+      console.error('Error:', error);
+    });
+
   };
 
   return (
