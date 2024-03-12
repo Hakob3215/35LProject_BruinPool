@@ -36,7 +36,7 @@
     resize: vertical;
   }
   
-  button[type="submit"] {
+  button[type="button"]{
     padding: 10px 20px;
     font-size: 16px;
     background-color: #007bff;
@@ -47,7 +47,12 @@
     transition: background-color 0.3s ease;
   }
   
-  button[type="submit"]:hover {
+  button[type="button"]:hover {
     background-color: #0056b3;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
   }
   
