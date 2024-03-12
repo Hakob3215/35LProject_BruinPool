@@ -24,11 +24,7 @@ function Navbar() {
             Home
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/Schedule-ride" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-            Schedule Ride
-          </NavLink>
-        </li>
+        
         <li>
           <NavLink to="/travel-suggestions" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
             Travel Suggestions
