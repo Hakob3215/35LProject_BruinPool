@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { UserContext } from '../UserContext';
 import './HomePage.css';
 
 const containerStyle = {
@@ -16,6 +17,7 @@ const center = {
 function HomePage() {
   // Simulate checking for an ongoing request with useState
   const [hasRequest, setHasRequest] = useState(false);
+  const {user} = useContext(UserContext);
 
   const toggleRequest = () => setHasRequest(!hasRequest);
 
@@ -27,13 +29,13 @@ function HomePage() {
         <div className="left-sidebar">
           {/* Placeholder for user information */}
           <h2>User Info</h2>
-          <p>Welcome, User! Here's some placeholder info.</p>
+          <p>Welcome, {user ? user.fullname : "ERR"}! Here's some placeholder info.</p>
         </div>
         <div className="map-container">
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={10}
+            zoom={18}
           >
             <Marker position={center} />
           </GoogleMap>
