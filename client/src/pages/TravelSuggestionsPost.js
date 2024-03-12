@@ -4,14 +4,12 @@ import './TravelSuggestionsPost.css';
 
 function TravelSuggestionsPost() {
   const [title, setTitle] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
   const [content, setContent] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Placeholder for handling form submission
-    console.log('Form submitted:', { title, date, time, content });
+    console.log('Form submitted:', { title, content });
   };
 
   return (
@@ -24,24 +22,6 @@ function TravelSuggestionsPost() {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Date:</label>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Time:</label>
-          <input
-            type="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
             required
           />
         </div>
