@@ -162,29 +162,48 @@ app.post('/api/travelposts', async (req, res) => {
 
 
 app.post('/api/rides/search', (req, res) => {
-  console.log('Ride search request received');
-  console.log('Date: ', req.body.date);
-  console.log('Start Time: ', req.body.startTime);
-  console.log('End Time: ', req.body.endTime);
-  console.log('Location: ', req.body.location);
 
+  // convert the time of the request to minutes (easier to compare)
   let [hours, minutes] = req.body.startTime.split(':').map(Number);
   let startTimeInMinutes = hours * 60 + minutes;
   [hours, minutes] = req.body.endTime.split(':').map(Number);
   let endTimeInMinutes = hours * 60 + minutes;
   
- 
+  // convert the date string to a date object (range of dates from 00:00 to 23:59)
+  let startDate = new Date(req.body.date);
+  let endDate = new Date(req.body.date);
+  endDate.setDate(endDate.getDate() + 1);
+
+  // get username to avoid matching with the user's own request (just in case!)
+  curUserName = req.body.user.username;
+  
+
+  // find all users that share the location+date+intersect with the time range
   userModel.find({
-    date: req.body.date,
-    startTime: {$gte: startTimeInMinutes},
-    endTime: {$lte: endTimeInMinutes},
+    username: {$ne: curUserName},
+    date: {$gte: startDate, $lt: endDate},
+    startTime: {$lte: endTimeInMinutes},
+    endTime: {$gte: startTimeInMinutes},
     location: req.body.location
-  }).then((data) => {
-    console.log('Data: ', data);
+  }).then((data) => {    
     res.send(data);
   }).catch((err) => {
     console.log('Error!:', err);
   });
+
+  // update the user's request in the database
+  userModel.updateOne(
+    {username: curUserName},
+    { $set: {
+      date: startDate,
+      startTime: startTimeInMinutes,
+      endTime: endTimeInMinutes,
+      location: req.body.location
+    }}, {new: true}
+  ).catch((err) => {
+    console.log('Error!:', err);
+  });
+
 
 });
 

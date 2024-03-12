@@ -7,7 +7,7 @@ function TravelSuggestionsPage() {
   const [travelSuggestions, setTravelSuggestions] = useState([]);
   const navigate = useNavigate();
 
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -16,10 +16,9 @@ function TravelSuggestionsPage() {
     } else {
       setUser(storedUser);
     }
-  }, []); // Empty dependency array
+  }, [navigate,setUser]); // Empty dependency array
 
   useEffect(() => {
-    // Placeholder for fetching travel suggestions from the backend
     fetch('/api/travel-suggestions',{
       method: 'GET',
       headers: {

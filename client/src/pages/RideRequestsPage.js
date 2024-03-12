@@ -4,6 +4,24 @@ import { UserContext } from '../UserContext';
 import './RideRequestsPage.css'; // Make sure to create a corresponding CSS file
 
 
+function convertMinutesToTime(minutes) {
+  let hours = Math.floor(minutes / 60);
+  let mins = minutes % 60;
+  let period = hours < 12 ? 'AM' : 'PM';
+
+  if (hours === 0) {
+      hours = 12;
+  } else if (hours > 12) {
+      hours -= 12;
+  }
+
+  // Pad minutes with a zero if below 10
+  mins = mins < 10 ? '0' + mins : mins;
+
+  return `${hours}:${mins} ${period}`;
+}
+
+
 function RideRequestsPage() {
   const [rideRequests, setRideRequests] = useState([]);
   const [date, setDate] = useState('');
@@ -22,7 +40,7 @@ function RideRequestsPage() {
     } else {
       setUser(storedUser);
     }
-  }, []); // Empty dependency array
+  }, [navigate, setUser]); // Empty dependency array
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,10 +52,18 @@ function RideRequestsPage() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ date, startTime, endTime, location }),
+      body: JSON.stringify({ user, date, startTime, endTime, location }),
     }).then((response) => {
       response.json().then((data) => {
-        setRideRequests(data);
+        const newRequests = data.map(request => ({
+          username: request.username,
+          date: request.date,
+          startTime: convertMinutesToTime(request.startTime),
+          endTime: convertMinutesToTime(request.endTime),
+          location: request.location
+        }));
+      setRideRequests(newRequests);
+
       });
     }).catch((error) => {
       console.error('Error:', error);
@@ -49,19 +75,20 @@ function RideRequestsPage() {
       <form onSubmit={handleSubmit}>
         <label>
           Date:
-          <input value={date} type="date" name="date" onChange={e => setDate(e.target.value)} />
+          <input value={date} type="date" name="date" onChange={e => setDate(e.target.value)} required/>
         </label>
         <label>
           Start Time:
-          <input value={startTime} type="time" name="time" onChange={e => setStartTime(e.target.value)} />
+          <input value={startTime} type="time" name="time" onChange={e => setStartTime(e.target.value)} required/>
         </label>
         <label>
           End Time:
-          <input value={endTime} type="time" name="time" onChange={e => setEndTime(e.target.value)}/>
+          <input value={endTime} type="time" name="time" onChange={e => setEndTime(e.target.value)} required/>
         </label>
         <label>
           Location:
-          <select value={location} onChange={e => setLocation(e.target.value)}>
+          <select value={location} onChange={e => setLocation(e.target.value)} required>
+            <option value="">Select a location</option>
             <option value="LAX">LAX</option>
             <option value="Burbank Airport">Burbank Airport</option>
             <option value="Santa Monica">Santa Monica</option>
@@ -69,6 +96,23 @@ function RideRequestsPage() {
         </label>
         <button type="submit">Search For Rides</button>
       </form>
+      <div className= "ride-requests-list">
+        {rideRequests.length > 0 ? (
+          <div>
+            <h2>Ride Requests</h2>
+            {rideRequests.map(request => (
+              <div key={request.username} className="ride-request-item">
+                <h4>{request.username}</h4>
+                <h4>Date: {request.date}</h4>
+                <h4>Time: {request.startTime} - {request.endTime}</h4>
+                <h4>Location: {request.location}</h4>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <h1>No ride requests found.</h1>
+        )}
+      </div>
     </div>
   );
 }
