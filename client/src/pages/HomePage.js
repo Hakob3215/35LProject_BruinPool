@@ -2,50 +2,60 @@ import React, { useContext, useState, useEffect } from 'react';
 import { GoogleMap, LoadScriptNext, Marker } from '@react-google-maps/api';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
-
-
 import './HomePage.css';
 
 const containerStyle = {
   flex: 1,
-  height: '60vh' // Adjust height as needed
+  height: '60vh', // Adjust height as needed
 };
 
 const center = {
   lat: 34.0689,
-  lng: -118.4452
+  lng: -118.4452,
 };
-
-
 
 function HomePage() {
   const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
 
-  // Simulate checking for an ongoing request with useState
+  // Initially, check if there's an ongoing request. This state might be updated based on API check.
   const [hasRequest, setHasRequest] = useState(false);
-  const {user, setUser} = useContext(UserContext);
 
   useEffect(() => {
-    if(!user){
+    if (!user) {
       const storedUser = JSON.parse(localStorage.getItem('user'));
       setUser(storedUser);
-      if(!storedUser){
-        navigate('/SignIn');
+      if (!storedUser) {
+        navigate('/Home');
       }
     }
+
+    // TODO: API Engineer - Insert code here to check if the user has an ongoing request.
+    // Example: fetch('/api/check-request').then(...).then(hasRequest => setHasRequest(hasRequest));
   }, [user, setUser, navigate]);
 
-  const toggleRequest = () => setHasRequest(!hasRequest);
+  const handleRequestClick = () => {
+    if (hasRequest) {
+      // TODO: API Engineer - Insert code here to call API to cancel the user's request.
+      // Example: fetch('/api/cancel-request', { method: 'POST' }).then(...).then(() => setHasRequest(false));
+      window.location.reload(); // Refresh the page after canceling the request
+    } else {
+      navigate('/requests'); // Navigate to RequestRide page if there's no ongoing request
+    }
+  };
 
   return (
-    <LoadScriptNext
-      googleMapsApiKey="AIzaSyCVnMRYNg4qGPr9gKOmy7GeeQJ98shDunE" // Replace with your Google Maps API key
-    >
+    <LoadScriptNext googleMapsApiKey="AIzaSyCVnMRYNg4qGPr9gKOmy7GeeQJ98shDunE">
       <div className="homepage-container">
         <div className="left-sidebar">
-          {/* Placeholder for user information */}
-          <h2>User Info</h2>
-          <p>Welcome, {user ? user.fullname : "ERR"}! Here's some placeholder info.</p>
+          <h2>Welcome, {user ? user.fullname : "Guest"}!</h2>
+          <h3>Getting Started:</h3>
+          <ul>
+            <li><strong>Request a Ride:</strong> Click the "Request Ride" button below the map. Enter your destination and preferred time.</li>
+            <li><strong>Find a Match:</strong> Look at the "Recent Requests" section on the right sidebar for potential ride matches.</li>
+            <li><strong>Chat and Coordinate:</strong> After finding a match, use the messaging feature to discuss details like pickup points and shared costs.</li>
+          </ul>
+          <p>Use these features to connect with fellow users, plan your rides, and contribute to our community's eco-friendly travel initiatives!</p>
         </div>
         <div className="map-container">
           <GoogleMap
@@ -57,14 +67,13 @@ function HomePage() {
           </GoogleMap>
           <div className="ride-request-buttons">
             {hasRequest ? (
-              <button onClick={toggleRequest} className="cancel-button">Cancel Ride</button>
+              <button onClick={handleRequestClick} className="cancel-button">Cancel Ride</button>
             ) : (
-              <button onClick={toggleRequest} className="request-button">Request Ride</button>
+              <button onClick={handleRequestClick} className="request-button">Request Ride</button>
             )}
           </div>
         </div>
         <div className="right-sidebar">
-          {/* Placeholder for recent uploads */}
           <h2>Recent Requests</h2>
           <p>Here's some random info about recent ride requests.</p>
         </div>
@@ -82,42 +91,7 @@ export default HomePage;
 
 
 
-/*import React, {useContext, useEffect} from 'react';
-import { UserContext } from '../UserContext';
-import { useNavigate } from 'react-router-dom';
-
-import './HomePage.css'; 
 
 
-function HomePage() {
-  const navigate = useNavigate();
-  const {user} = useContext(UserContext);
 
-  useEffect(() => {
-    if (!user) {
-      navigate('/SignIn');
-    }
-  }, [user, navigate]);
-  
-  const handleScheduleRide = () => {
-    // Navigate to the page where users can request a ride
-    navigate('/Schedule-ride');
-  };
 
-  return (
-
-    <div className="home-page">
-      <h1>Welcome to BruinPool, {user ? user.username : "ERR"}!</h1>
-      <p>Your go-to platform for carpooling with fellow college students.</p>
-      
-      <div className="actions">
-        <button onClick={handleScheduleRide} className="schedule-ride-btn">Schedule a Ride</button>
-      </div>
-
-    </div>
-  );
-}
-
-export default HomePage;
-
-*/

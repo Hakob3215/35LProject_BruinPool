@@ -44,3 +44,10 @@
 .cancel-button {
   background-color: #f44336; /* Red, adjust as needed */
 }
+.left-sidebar {
+  padding: 10px 20px;
+  border: 1px solid #ccc; /* Visual distinction, adjust as needed */
+  height: auto; /* Adjust based on content, or set a max-height */
+  overflow-y: auto; /* Adds scroll bar if content exceeds container height */
+  word-wrap: break-word; /* Ensures words break to prevent horizontal overflow */
+}
