@@ -38,7 +38,7 @@ const travelBlogSchema = new Schema({
 });
 
 const chatLogSchema = new Schema({
-    users: [{ type: Schema.Types.ObjectId, ref: 'user' }],
+    users: [{ type: String }],
     messages: [{
         sender: { type: Schema.Types.ObjectId, ref: 'user' },
         content: String,

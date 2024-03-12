@@ -144,6 +144,16 @@ app.post('/api/users/signup', async (req, res) => {
   });
 });
 
+// handle ride request search
+
+app.post('/api/rides/search', (req, res) => {
+  console.log('Ride search request received');
+  console.log(req.body.date, req.body.startTime, req.body.endTime, req.body.location);
+});
+
+
+
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
