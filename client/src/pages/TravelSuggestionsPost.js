@@ -9,8 +9,7 @@ function TravelSuggestionsPost() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Placeholder for handling form submission
-    console.log('Form submitted:', { title, content });
-
+    
     fetch('/api/travelposts', {
       method: 'POST',
       headers: {
@@ -25,6 +24,8 @@ function TravelSuggestionsPost() {
     }).catch((error) => {
       console.error('Error:', error);
     });
+
+    console.log('Form submitted:', { title, content });
 
   };
 
