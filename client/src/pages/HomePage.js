@@ -18,8 +18,9 @@ function HomePage() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
 
-  // Initially, check if there's an ongoing request. This state might be updated based on API check.
-  const [hasRequest, setHasRequest] = useState(false);
+  // HAKOB, when useState is set to false, the button is Request Ride, when useState is set to true, it shows Cancel
+  // IDK do some API magic to make sure it sets the right boolean here.
+  const [hasRequest, setHasRequest] = useState(true);
 
   useEffect(() => {
     if (!user) {
@@ -30,14 +31,11 @@ function HomePage() {
       }
     }
 
-    // TODO: API Engineer - Insert code here to check if the user has an ongoing request.
-    // Example: fetch('/api/check-request').then(...).then(hasRequest => setHasRequest(hasRequest));
   }, [user, setUser, navigate]);
 
   const handleRequestClick = () => {
     if (hasRequest) {
-      // TODO: API Engineer - Insert code here to call API to cancel the user's request.
-      // Example: fetch('/api/cancel-request', { method: 'POST' }).then(...).then(() => setHasRequest(false));
+
       window.location.reload(); // Refresh the page after canceling the request
     } else {
       navigate('/requests'); // Navigate to RequestRide page if there's no ongoing request
