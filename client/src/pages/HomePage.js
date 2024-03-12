@@ -1,4 +1,69 @@
-import React, {useContext, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import './HomePage.css';
+
+const containerStyle = {
+  flex: 1,
+  height: '60vh' // Adjust height as needed
+};
+
+const center = {
+  lat: -34.397,
+  lng: 150.644
+};
+
+function HomePage() {
+  // Simulate checking for an ongoing request with useState
+  const [hasRequest, setHasRequest] = useState(false);
+
+  const toggleRequest = () => setHasRequest(!hasRequest);
+
+  return (
+    <LoadScript
+      googleMapsApiKey="AIzaSyCVnMRYNg4qGPr9gKOmy7GeeQJ98shDunE" // Replace with your Google Maps API key
+    >
+      <div className="homepage-container">
+        <div className="left-sidebar">
+          {/* Placeholder for user information */}
+          <h2>User Info</h2>
+          <p>Welcome, User! Here's some placeholder info.</p>
+        </div>
+        <div className="map-container">
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={10}
+          >
+            <Marker position={center} />
+          </GoogleMap>
+          <div className="ride-request-buttons">
+            {hasRequest ? (
+              <button onClick={toggleRequest} className="cancel-button">Cancel Ride</button>
+            ) : (
+              <button onClick={toggleRequest} className="request-button">Request Ride</button>
+            )}
+          </div>
+        </div>
+        <div className="right-sidebar">
+          {/* Placeholder for recent uploads */}
+          <h2>Recent Requests</h2>
+          <p>Here's some random info about recent ride requests.</p>
+        </div>
+      </div>
+    </LoadScript>
+  );
+}
+
+export default HomePage;
+
+
+
+
+
+
+
+
+/*import React, {useContext, useEffect} from 'react';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,3 +100,5 @@ function HomePage() {
 }
 
 export default HomePage;
+
+*/
