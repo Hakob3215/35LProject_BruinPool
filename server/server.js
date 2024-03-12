@@ -143,25 +143,6 @@ app.post('/api/users/signup', async (req, res) => {
   });
 });
 
-// handle ride request search
-app.post('/api/rides/search', (req, res) => {
-  console.log('Ride search request received');
-  console.log(req.body.date, req.body.startTime, req.body.endTime, req.body.location);
-
-  // find all rides that match the search parameters
-  userModel.find({
-    date: req.body.date,
-    startTime: {$gte: req.body.startTime},
-    endTime: {$lte: req.body.endTime},
-    location: req.body.location
-  }).then((data) => {
-    console.log(data);
-    res.send(data);
-  }).catch((err) => {
-    console.log(err);
-  });
-
-});
 
 // handle new posts
 app.post('/api/travelposts', async (req, res) => {
@@ -182,19 +163,27 @@ app.post('/api/travelposts', async (req, res) => {
 
 app.post('/api/rides/search', (req, res) => {
   console.log('Ride search request received');
-  console.log(req.body.date, req.body.startTime, req.body.endTime, req.body.location);
+  console.log('Date: ', req.body.date);
+  console.log('Start Time: ', req.body.startTime);
+  console.log('End Time: ', req.body.endTime);
+  console.log('Location: ', req.body.location);
 
-  // find all rides that match the search parameters
+  let [hours, minutes] = req.body.startTime.split(':').map(Number);
+  let startTimeInMinutes = hours * 60 + minutes;
+  [hours, minutes] = req.body.endTime.split(':').map(Number);
+  let endTimeInMinutes = hours * 60 + minutes;
+  
+ 
   userModel.find({
     date: req.body.date,
-    startTime: {$gte: req.body.startTime},
-    endTime: {$lte: req.body.endTime},
+    startTime: {$gte: startTimeInMinutes},
+    endTime: {$lte: endTimeInMinutes},
     location: req.body.location
   }).then((data) => {
-    console.log(data);
+    console.log('Data: ', data);
     res.send(data);
   }).catch((err) => {
-    console.log(err);
+    console.log('Error!:', err);
   });
 
 });

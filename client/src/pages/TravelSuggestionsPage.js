@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../UserContext';
 import './TravelSuggestionsPage.css'; // Make sure to create a corresponding CSS file
 
 function TravelSuggestionsPage() {
   const [travelSuggestions, setTravelSuggestions] = useState([]);
   const navigate = useNavigate();
+
+  const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (!storedUser) {
+      navigate('/SignIn');
+    } else {
+      setUser(storedUser);
+    }
+  }, []); // Empty dependency array
 
   useEffect(() => {
     // Placeholder for fetching travel suggestions from the backend
