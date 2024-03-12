@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScriptNext, Marker } from '@react-google-maps/api';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -38,7 +38,7 @@ function HomePage() {
   const toggleRequest = () => setHasRequest(!hasRequest);
 
   return (
-    <LoadScript
+    <LoadScriptNext
       googleMapsApiKey="AIzaSyCVnMRYNg4qGPr9gKOmy7GeeQJ98shDunE" // Replace with your Google Maps API key
     >
       <div className="homepage-container">
@@ -69,7 +69,7 @@ function HomePage() {
           <p>Here's some random info about recent ride requests.</p>
         </div>
       </div>
-    </LoadScript>
+    </LoadScriptNext>
   );
 }
 
