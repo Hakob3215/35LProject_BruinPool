@@ -23,15 +23,13 @@ function HomePage() {
   const [hasRequest, setHasRequest] = useState(false);
 
   useEffect(() => {
-    if (!user) {
-      const storedUser = JSON.parse(localStorage.getItem('user'));
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (!storedUser) {
+      navigate('/SignIn');
+    } else {
       setUser(storedUser);
-      if (!user) {
-        navigate('/SignIn');
-      }
     }
-
-  }, [user, setUser, navigate]);
+  }, []); // Empty dependency array
 
   const handleRequestClick = () => {
     if (hasRequest) {

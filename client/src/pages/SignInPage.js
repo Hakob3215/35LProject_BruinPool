@@ -32,7 +32,7 @@ function SignInPage() {
         if (data){
           setLoginError('');
           setUser(data); // This is the user object received from the backend, saved in the context
-          localStorage.setItem('user', JSON.stringify(data)); // Save the user object to local storage
+          localStorage.setItem('user', JSON.stringify(data));
           navigate('/home');
         } else {
             setLoginError('We couldn’t find an account with that username and password. Please try again.');

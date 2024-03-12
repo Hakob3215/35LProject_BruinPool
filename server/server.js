@@ -108,7 +108,6 @@ app.post('/api/users/signup', async (req, res) => {
   // 201: email exists
   // 202: both exist
   // 203: neither exist, create user
-
   // 204: invalid email
 
   if (usertaken && emailtaken) {
@@ -150,8 +149,6 @@ app.post('/api/rides/search', (req, res) => {
   console.log('Ride search request received');
   console.log(req.body.date, req.body.startTime, req.body.endTime, req.body.location);
 });
-
-
 
 
 app.listen(port, () => {
