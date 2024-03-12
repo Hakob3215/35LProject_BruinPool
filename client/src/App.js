@@ -8,6 +8,7 @@ import FirstPage from './pages/FirstPage'
 import MessageCenterPage from './pages/MessageCenterPage';
 import Navbar from './components/navbar';
 import TravelSuggestionsPage from './pages/TravelSuggestionsPage';
+import TravelSuggestionPost from './pages/TravelSuggestionsPost';
 
 import './App.css'; // Ensure your global styles are here
 import { UserProvider } from './UserContext';
@@ -24,6 +25,9 @@ function App() {
         <Route path="/requests" element={<> <Navbar />  <RideRequestsPage/> </>} />
         <Route path="/travel-suggestions" element={<> <Navbar /><TravelSuggestionsPage/> </>} />
         <Route path="/message-center" element={<> <Navbar /><MessageCenterPage/> </>} />
+        <Route path="/travel-suggestionspost" element={<> <Navbar /><TravelSuggestionPost/> </>} />
+
+        
 
         {/* Add more routes as needed */}
       </Routes>
