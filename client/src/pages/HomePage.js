@@ -8,9 +8,10 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -34.397,
-  lng: 150.644
+  lat: 34.0689,
+  lng: -118.4452
 };
+
 
 function HomePage() {
   // Simulate checking for an ongoing request with useState
