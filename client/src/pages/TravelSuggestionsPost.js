@@ -21,6 +21,7 @@ function TravelSuggestionsPost() {
         console.log(data);
         }
       )
+      alert("Successfully posted!")
     }).catch((error) => {
       console.error('Error:', error);
     });
@@ -28,6 +29,12 @@ function TravelSuggestionsPost() {
     console.log('Form submitted:', { title, content });
 
   };
+
+  // When user is done writing post (or wants to exit)
+  // Returns user back to TravelSuggestionsPage
+  const returnBackToPosts = () => {
+    window.location.href = '/travel-suggestions';
+  }
 
   return (
     <div className="travel-suggestions-post">
@@ -51,7 +58,10 @@ function TravelSuggestionsPost() {
             required
           ></textarea>
         </div>
-        <button type="submit">Submit</button>
+        <div class="button-container">
+          <button type="button">Submit</button>
+          <button type="button" onClick={returnBackToPosts}>Done</button>
+        </div>
       </form>
     </div>
   );
