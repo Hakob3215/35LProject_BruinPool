@@ -59,7 +59,7 @@ function TravelSuggestionsPost() {
           ></textarea>
         </div>
         <div class="button-container">
-          <button type="button">Submit</button>
+          <button type="button" onClick={handleSubmit}>Submit</button>
           <button type="button" onClick={returnBackToPosts}>Done</button>
         </div>
       </form>
