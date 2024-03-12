@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { UserContext } from '../UserContext';
+import { useNavigate } from 'react-router-dom';
+
+
 import './HomePage.css';
 
 const containerStyle = {
@@ -13,9 +17,23 @@ const center = {
 };
 
 
+
 function HomePage() {
+  const navigate = useNavigate();
+
   // Simulate checking for an ongoing request with useState
   const [hasRequest, setHasRequest] = useState(false);
+  const {user, setUser} = useContext(UserContext);
+
+  useEffect(() => {
+    if(!user){
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+      setUser(storedUser);
+      if(!storedUser){
+        navigate('/SignIn');
+      }
+    }
+  }, [user, setUser, navigate]);
 
   const toggleRequest = () => setHasRequest(!hasRequest);
 
