@@ -20,7 +20,7 @@ function HomePage() {
 
   // HAKOB, when useState is set to false, the button is Request Ride, when useState is set to true, it shows Cancel
   // IDK do some API magic to make sure it sets the right boolean here.
-  const [hasRequest, setHasRequest] = useState(true);
+  const [hasRequest, setHasRequest] = useState(false);
 
   useEffect(() => {
     if (!user) {
