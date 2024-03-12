@@ -19,7 +19,7 @@ function TravelSuggestionsPage() {
       .catch(error => console.error('Error fetching travel suggestions:', error));
   }, []);
   const handleCreateSuggestion = () => {
-    navigate('/TravelSuggestionsPost');
+    navigate('/travel-suggestionspost');
   };
 
 
