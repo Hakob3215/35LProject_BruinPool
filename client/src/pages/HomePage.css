@@ -1,41 +1,33 @@
-.homepage-container {
-  display: flex;
-  padding: 20px;
-  gap: 20px; /* Adds space between sidebars and map */
-}
-
-.left-sidebar, .right-sidebar {
-  width: 20%;
-  height: 100vh;
-  overflow-y: auto;
-  padding: 10px;
-  border: 1px solid #ccc; /* Visual distinction */
-}
-
-.map-container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.ride-request-buttons {
-  margin-top: 20px;
-}
-
-.request-button, .cancel-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  color: white;
-}
-
-.request-button {
-  background-color: #4CAF50; /* Green */
-}
-
-.cancel-button {
-  background-color: #f44336; /* Red */
-}
+.home-page {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .home-page h1 {
+    color: #333;
+  }
+  
+  .home-page p {
+    color: #666;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .actions {
+    margin-top: 30px;
+  }
+  
+  .offer-ride-btn, .schedule-ride-btn {
+    background-color: #04C2C9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .offer-ride-btn:hover, .schedule-ride-btn:hover {
+    background-color: #039DA6;
+  }
+  

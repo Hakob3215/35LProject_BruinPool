@@ -14,7 +14,6 @@ const port = 5000;
 app.use(express.json());
 
 
-
 // handle login request
 app.post('/api/users/login', (req, res) => {
   // check if request is received
