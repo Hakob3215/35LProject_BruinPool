@@ -14,7 +14,10 @@ const center = {
 };
 
 
+
 function HomePage() {
+  const navigate = useNavigate();
+
   // Simulate checking for an ongoing request with useState
   const [hasRequest, setHasRequest] = useState(false);
   const {user} = useContext(UserContext);
@@ -22,7 +25,7 @@ function HomePage() {
   const toggleRequest = () => setHasRequest(!hasRequest);
 
   return (
-    <LoadScript
+    <LoadScriptNext
       googleMapsApiKey="AIzaSyCVnMRYNg4qGPr9gKOmy7GeeQJ98shDunE" // Replace with your Google Maps API key
     >
       <div className="homepage-container">
@@ -53,7 +56,7 @@ function HomePage() {
           <p>Here's some random info about recent ride requests.</p>
         </div>
       </div>
-    </LoadScript>
+    </LoadScriptNext>
   );
 }
 

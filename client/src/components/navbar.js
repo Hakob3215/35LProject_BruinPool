@@ -4,7 +4,15 @@ import { UserContext } from '../UserContext';
 import './navbar.css';
 
 function Navbar() {
-  const {user} = useContext(UserContext);
+
+  const {user, setUser} = useContext(UserContext);
+
+  const handleSignOut = () => {
+    // Remove the user from local storage and set the user in context to null
+    localStorage.removeItem('user');
+    setUser(null);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -32,7 +40,7 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+          <NavLink to="/" onClick={handleSignOut} className={({ isActive }) => (isActive ? 'nav-active' : '')}>
             Sign Out
           </NavLink>
         </li>
