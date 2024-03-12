@@ -1,26 +1,50 @@
-/* MessageCenter.css */
-.message-center {
-  max-width: 400px;
+/* MessageCenterPage.css */
+.message-center-container {
+  display: flex;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 15px;
   background-color: #f0f0f0;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 
-.message-center h2 {
+.message-list, .current-message {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message-list {
+  border-right: 1px solid #ccc;
+}
+
+.message-preview, .current-message .message {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.message-preview:hover, .current-message .message:hover {
+  background-color: #0056b3;
+}
+
+.current-message h2, .message-list h2 {
   margin-bottom: 10px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
   color: #333;
 }
 
-.message-center form {
+.current-message form {
   display: flex;
+  margin-top: 20px;
 }
 
-.message-center input[type="text"] {
+.current-message input[type="text"] {
   flex: 1;
   padding: 8px;
   border: 1px solid #ccc;
@@ -29,7 +53,7 @@
   font-size: 16px;
 }
 
-.message-center button {
+.current-message button {
   padding: 8px 15px;
   border: none;
   background-color: #007bff;
@@ -40,28 +64,6 @@
   margin-left: 10px;
 }
 
-.message-center button:hover {
+.current-message button:hover {
   background-color: #0056b3;
-}
-
-.messages {
-  margin-top: 20px;
-}
-
-.message {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 20px;
-  width: fit-content;
-  max-width: 70%;
-  align-self: flex-end;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.message-center .incoming {
-  background-color: #f0f0f0;
-  color: #333;
-  align-self: flex-start;
 }
