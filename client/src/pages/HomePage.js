@@ -26,8 +26,8 @@ function HomePage() {
     if (!user) {
       const storedUser = JSON.parse(localStorage.getItem('user'));
       setUser(storedUser);
-      if (!storedUser) {
-        navigate('/Home');
+      if (!user) {
+        navigate('/SignIn');
       }
     }
 
