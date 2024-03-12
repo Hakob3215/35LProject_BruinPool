@@ -5,10 +5,9 @@ import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
 import RideRequestsPage from './pages/RideRequestsPage';
 import FirstPage from './pages/FirstPage'
-import TravelSuggestionsPage from './pages/TravelSuggestionsPage';
-import NewAccountCreated from './pages/Newaccountcreated';
 import MessageCenterPage from './pages/MessageCenterPage';
 import Navbar from './components/navbar';
+import TravelSuggestionsPage from './pages/TravelSuggestionsPage';
 
 import './App.css'; // Ensure your global styles are here
 import { UserProvider } from './UserContext';
@@ -21,7 +20,6 @@ function App() {
         <Route path="/" element  = {<FirstPage />} />
         <Route path="/SignIn" element={<SignInPage />} />
         <Route path="/SignUp" element={<SignUpPage />} />
-        <Route path="/Newaccountcreated" element={<NewAccountCreated/>} />
         <Route path="/Home" element={<> <Navbar />  <HomePage/> </> }/>
         <Route path="/requests" element={<> <Navbar />  <RideRequestsPage/> </>} />
         <Route path="/travel-suggestions" element={<> <Navbar /><TravelSuggestionsPage/> </>} />
