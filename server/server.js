@@ -237,6 +237,39 @@ app.post('/api/new-chat', (req, res) => {
   })
 });
 
+// handle request status when home page is opened
+app.post('/api/request-status', (req, res) => {
+  userModel.findOne({
+    username: req.body.user.username
+  }).then((user) => {
+    res.send({hasRequest: (user.date != null),
+      location: user.location,
+      date: user.date,
+      startTime: user.startTime,
+      endTime: user.endTime
+    });
+  }).catch((err) => {
+    console.log(err);
+  });
+});
+
+// handle request cancellation
+app.post('/api/cancel-request', (req, res) => {
+  userModel.updateOne(
+    {username: req.body.user.username},
+    { $set: {
+      date: null,
+      startTime: null,
+      endTime: null,
+      location: null
+    }}, {new: true}
+  ).then(() => {
+    res.send(true);
+  }).catch((err) => {
+    console.log(err);
+  });
+});
+
 // handle chatroom page opening 
 app.get('/api/chatroom', (req, res) => {
   // get the chatroom data
