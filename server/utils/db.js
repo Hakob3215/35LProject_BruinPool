@@ -41,9 +41,10 @@ const chatLogSchema = new Schema({
     users: [{ type: String }],
     messages: [{
         sender: { type: Schema.Types.ObjectId, ref: 'user' },
-        content: String,
+        content: {type: String},
         timestamp: { type: Date, default: Date.now }
-    }]
+    }],
+    lastMessage: { type: Date, default: Date.now }
 });
 
 const user = mongoose.model('user', userSchema);

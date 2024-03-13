@@ -61,6 +61,16 @@
 
 }
 
+.conversation ul .other-message {
+  background-color: #808080; /* Gray background */
+  color: black;
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 15px; /* Padding */
+  margin-bottom: 10px; 
+  width: auto;
+  text-align: left; 
+}
+
 .conversation ul li:last-child {
   margin-bottom: 0;
 }
@@ -69,6 +79,7 @@
   margin-top: 20px;
   display: flex;
   align-items: center;
+  width: 90%;
 }
 
 .message-input input {

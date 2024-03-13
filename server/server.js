@@ -209,7 +209,6 @@ app.post('/api/rides/search', (req, res) => {
 
 // handle new chatroom creation
 app.post('/api/new-chat', (req, res) => {
-
   // sort the username so that duplicates are avoided (ie; user1-user2 and user2-user1 are the same chatroom)
   let users = [req.body.user.username, req.body.otherUser.username].sort();
 
@@ -271,19 +270,39 @@ app.post('/api/cancel-request', (req, res) => {
 });
 
 // handle chatroom page opening 
-app.get('/api/chatroom', (req, res) => {
+app.post('/api/message-center/chat-users', (req, res) => {
   // get the chatroom data
   chatLogModel.find({
     // find the chatrooms that the user is a part of
     users: {$in: [req.body.user.username]}
   }).then((data) => {
-    res.send(data);
+    const userList = data.map((chatroom) => {
+      // find the other user in the chatroom
+      const otherUser = chatroom.users.find((user) => user !== req.body.user.username);
+      // find the time of the last message
+      const lastMessage = chatroom.lastMessage;
+      return {otherUser, lastMessage};
+    });
+    // sort the chatrooms by the time of the last message from latest to oldest
+    userList.sort((a, b) => b.lastMessage - a.lastMessage);
+    res.send(userList);
   }).catch((err) => {
     console.log(err);
   });
 });
 
+// handle chatroom message opening
+app.post('/api/message-center/chat-messages', (req, res) => {
+  chatLogModel.findOne({
+    users: {$all: [req.body.user.username, req.body.otherUser]}
+  }).then((chatlog) => {
+    res.send(chatlog.messages);
+  }).catch((err) => {
+    console.log(err);
+  });
+  });
+
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`BruinLearn listening at http://localhost:${port}`);
 });
