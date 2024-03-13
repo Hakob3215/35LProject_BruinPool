@@ -5,9 +5,9 @@ import SignIn from './SignInPage.js'
 import SignUp from './SignUpPage.js'
 
 import logoImage from './images/logo.jpg'
-import happyCar from './images/happyCar.avif'
+import happyCar from './images/happyCar.png'
 import yourPrice from './images/yourPrice.png'
-import whyUs from './images/whyUs.avif'
+import whyUs from './images/whyUs.png'
 import review1 from './images/review1.png'
 import review2 from './images/review2.png'
 
@@ -81,18 +81,21 @@ function FirstPage({ handleSignInClick }) {
     <img src={happyCar}/>
     <div class="layer">
       <h3>Choose who you ride with</h3>
+      <p> With over 250 carpools happening each day, you're guaranteed to find the perfect driver!</p>
     </div>
   </div>
   <div class="campus-col">
     <img src={whyUs}/>
     <div class="layer">
       <h3>Why Us?</h3>
+      <p> Our carefully curated system has allowed for over 3,500 successful and reiable trips, ensuring a safe and cose effective form of transportation. </p>
     </div>
   </div>
   <div class="campus-col">
     <img src={yourPrice}/>
     <div class="layer">
       <h3>Your Price</h3>
+      <p> Name the driver, and we'll find one within your price range</p>
     </div>
   </div>
 </div>
