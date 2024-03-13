@@ -64,7 +64,10 @@ function HomePage() {
         setHasRequest(data.hasRequest);
         if (data.hasRequest) {
           setLocation(data.location);
-          setDate(new Date(data.date).toLocaleDateString('en-US'));
+          // get the current date (not the time)
+          const date = new Date(data.date).toISOString().split('T')[0];
+          const [year, month, day] = date.split('-'); 
+          setDate(`${month}/${day}/${year}`); // Format the date as MM/DD/YYYY
           setStartTime(data.startTime);
           setEndTime(data.endTime);
         } else {
