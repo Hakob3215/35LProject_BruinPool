@@ -21,7 +21,8 @@ function TravelSuggestionsPost() {
         console.log(data);
         }
       )
-      alert("Successfully posted!")
+    // Returns user back to TravelSuggestionsPage
+      window.location.href = '/travel-suggestions';
     }).catch((error) => {
       console.error('Error:', error);
     });
@@ -30,11 +31,6 @@ function TravelSuggestionsPost() {
 
   };
 
-  // When user is done writing post (or wants to exit)
-  // Returns user back to TravelSuggestionsPage
-  const returnBackToPosts = () => {
-    window.location.href = '/travel-suggestions';
-  }
 
   return (
     <div className="travel-suggestions-post">
@@ -60,7 +56,6 @@ function TravelSuggestionsPost() {
         </div>
         <div class="button-container">
           <button type="button" onClick={handleSubmit}>Submit</button>
-          <button type="button" onClick={returnBackToPosts}>Done</button>
         </div>
       </form>
     </div>
