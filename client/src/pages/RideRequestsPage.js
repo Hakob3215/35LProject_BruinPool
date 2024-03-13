@@ -69,6 +69,11 @@ function RideRequestsPage() {
     setHasSearched(true);
     // For the message on screen
 
+    if(endTime < startTime){
+      alert("End time must be after start time.")
+      return;
+    }
+
     fetch('/api/rides/search', {
       method: 'POST',
       headers: {

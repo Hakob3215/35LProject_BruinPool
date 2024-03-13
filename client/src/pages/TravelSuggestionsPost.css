@@ -53,7 +53,7 @@
 
   .button-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   #l1, #l2 {
