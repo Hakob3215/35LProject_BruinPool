@@ -216,8 +216,14 @@ app.post('/api/new-chat', (req, res) => {
     users: users
   }).then((chatroom) => {
     if (chatroom){
-      // if the chatroom already exists, nothing needs to be done
-      res.send(false);
+      // if the chatroom already exists, update its last message time
+      chatroom.lastMessage = new Date();
+      chatroom.save().then(() => {
+        console.log('Chatroom updated');
+        res.send(false);
+      }).catch((err) => {
+        console.log(err);
+      });
       return;
     } else{
       // if the chatroom does not exist, create a new chatroom
@@ -272,23 +278,6 @@ app.post('/api/cancel-request', (req, res) => {
     res.status(500).json({ message: 'Error canceling the ride request.' });
   });
 });
-/*
-app.post('/api/cancel-request', (req, res) => {
-  userModel.updateOne(
-    {username: req.body.user.username},
-    { $set: {
-      date: null,
-      startTime: null,
-      endTime: null,
-      location: null
-    }}, {new: true}
-  ).then(() => {
-    res.send(true);
-  }).catch((err) => {
-    console.log(err);
-  });
-});
-*/
 
 // handle chatroom page opening 
 app.post('/api/message-center/chat-users', (req, res) => {
