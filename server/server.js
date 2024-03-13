@@ -254,6 +254,26 @@ app.post('/api/request-status', (req, res) => {
 
 // handle request cancellation
 app.post('/api/cancel-request', (req, res) => {
+  const username = req.body.username; // Adjusted to a possibly corrected structure based on your frontend
+  userModel.updateOne(
+    { username: username },
+    { $set: { date: null, startTime: null, endTime: null, location: null }}
+  )
+  .then(result => {
+    if (result.modifiedCount === 0) {
+      // No document was modified, which means user wasn't found or already had null values
+      return res.status(404).json({ message: "User not found or request already canceled." });
+    }
+    // Successfully updated the user document
+    res.json({ message: "Ride request canceled successfully." });
+  })
+  .catch(err => {
+    console.error(err);
+    res.status(500).json({ message: 'Error canceling the ride request.' });
+  });
+});
+/*
+app.post('/api/cancel-request', (req, res) => {
   userModel.updateOne(
     {username: req.body.user.username},
     { $set: {
@@ -268,6 +288,7 @@ app.post('/api/cancel-request', (req, res) => {
     console.log(err);
   });
 });
+*/
 
 // handle chatroom page opening 
 app.post('/api/message-center/chat-users', (req, res) => {
@@ -329,6 +350,29 @@ app.post('/api/message-center/send-message', (req, res) => {
     console.log(err);
   });
 });
+
+//homepage button
+  app.post('/api/check-ride-request', async (req, res) => {
+    const { username } = req.body;
+    try {
+      const foundUser = await userModel.findOne({ username: username });
+      if (foundUser && foundUser.location) { // Assuming location being non-empty signifies an active request
+        res.json({
+          hasRequest: true,
+          location: foundUser.location,
+          date: foundUser.date,
+          startTime: foundUser.startTime,
+          endTime: foundUser.endTime
+        });
+      } else {
+        res.json({ hasRequest: false });
+      }
+    } catch (err) {
+      console.error('Error checking ride request:', err);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+  
 
 
 app.listen(port, () => {
