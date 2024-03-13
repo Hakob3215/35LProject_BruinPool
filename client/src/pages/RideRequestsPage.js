@@ -111,12 +111,26 @@ function RideRequestsPage() {
           Location:
           <select value={location} onChange={e => setLocation(e.target.value)} required>
             <option value="">Select a location</option>
-            <option value="LAX">LAX</option>
+            <option value="LAX">LAX Airport</option>
             <option value="Burbank Airport">Burbank Airport</option>
             <option value="Santa Monica">Santa Monica</option>
+            <option value="LA Union Station">LA Union Station</option>
+            <option value="UCLA Ackerman Union">UCLA Ackerman Union</option>
+            <option value="USC Campus">USC Campus</option>
+            <option value="Disneyland">Disneyland</option>
+            <option value="Universal Studios">Universal Studios</option>
+            <option value="Hollywood">Hollywood</option>
+            <option value="Venice Beach">Venice Beach</option>
+            <option value="Crypto.com Arena">Crypto.com Arena</option>
+
+
+            
+
+
           </select>
         </label>
-        <button type="submit">Search For Rides</button>
+        <div className="line-break"></div> {}
+        <button id = "ButtonID" type="submit">Search For Rides/Add Request</button>
       </form>
       <div className= "ride-requests-list">
         {rideRequests.length > 0 ? (
@@ -133,7 +147,7 @@ function RideRequestsPage() {
             ))}
           </div>
         ) : (
-          hasSearched ? <h2> No Requests Found </h2> : <h2> Please select a ride location and time </h2>
+          hasSearched ? <h2> No Requests Found </h2> : <h2> Please select a ride, location, and time </h2>
         )}
       </div>
     </div>

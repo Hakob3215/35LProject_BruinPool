@@ -25,3 +25,10 @@
     padding: 20px;
     margin-top: 20px;
   }
+
+  #ButtonID {
+    display: block;
+  }
+  .line-break {
+    margin-bottom: 15px; /* Adjust spacing as needed */
+  }
