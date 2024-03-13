@@ -14,6 +14,23 @@ const center = {
   lng: -118.4509,
 };
 
+function convertMinutesToTime(minutes) {
+  let hours = Math.floor(minutes / 60);
+  let mins = minutes % 60;
+  let period = hours < 12 ? 'AM' : 'PM';
+
+  if (hours === 0) {
+      hours = 12;
+  } else if (hours > 12) {
+      hours -= 12;
+  }
+
+  // Pad minutes with a zero if below 10
+  mins = mins < 10 ? '0' + mins : mins;
+
+  return `${hours}:${mins} ${period}`;
+}
+
 function HomePage() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
@@ -21,6 +38,11 @@ function HomePage() {
   // HAKOB, when useState is set to false, the button is Request Ride, when useState is set to true, it shows Cancel
   // IDK do some API magic to make sure it sets the right boolean here.
   const [hasRequest, setHasRequest] = useState(false);
+  const [location, setLocation] = useState('');
+  const [date, setDate] = useState('');
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
+
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -31,10 +53,43 @@ function HomePage() {
     }
   }, []); // Empty dependency array
 
+  useEffect(() => {
+    // Fetch the user's request status from the backend
+    if (!user) {
+      return;
+    }
+    fetch('/api/request-status',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if(data){
+        setHasRequest(data.hasRequest);
+        setLocation(data.location);
+        setDate(data.date);
+        setStartTime(data.startTime);
+        setEndTime(data.endTime);
+        } 
+      })
+      .catch(error => console.error('Error fetching request status:', error));
+    }, [user]);
+
   const handleRequestClick = () => {
     if (hasRequest) {
-
-      window.location.reload(); // Refresh the page after canceling the request
+      // nullify the user's request in the database
+      fetch('/api/cancel-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user }),
+      }).then(() => {}).catch((error) => {
+        console.error('Error:', error);
+      });
     } else {
       navigate('/requests'); // Navigate to RequestRide page if there's no ongoing request
     }
@@ -63,8 +118,15 @@ function HomePage() {
           </GoogleMap>
           <div className="ride-request-buttons">
             {hasRequest ? (
+              <>
               <button onClick={handleRequestClick} className="cancel-button">Cancel Ride</button>
-            ) : (
+              <div className="ride-request-info">
+                <h3>Your Ride Request:</h3>
+                <p><strong>Location:</strong> {location}</p>
+                <p><strong>Date:</strong> {date.split('T')[0]}</p>
+                <p><strong>Time:</strong> {convertMinutesToTime(startTime)} - {convertMinutesToTime(endTime)}</p>
+              </div>
+              </>            ) : (
               <button onClick={handleRequestClick} className="request-button">Request Ride</button>
             )}
           </div>
