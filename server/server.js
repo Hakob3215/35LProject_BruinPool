@@ -160,7 +160,7 @@ app.post('/api/travelposts', async (req, res) => {
   });
 });
 
-
+// response to ride search
 app.post('/api/rides/search', (req, res) => {
 
   // convert the time of the request to minutes (easier to compare)
@@ -207,6 +207,35 @@ app.post('/api/rides/search', (req, res) => {
 
 });
 
+// handle new chatroom creation
+app.post('/api/new-chat', (req, res) => {
+
+  // sort the username so that duplicates are avoided (ie; user1-user2 and user2-user1 are the same chatroom)
+  let users = [req.body.user.username, req.body.otherUser.username].sort();
+
+  chatLogModel.findOne({
+    users: users
+  }).then((chatroom) => {
+    if (chatroom){
+      // if the chatroom already exists, nothing needs to be done
+      res.send(false);
+      return;
+    } else{
+      // if the chatroom does not exist, create a new chatroom
+      res.send(true);
+        let newChatroom = new chatLogModel({
+          users: users,
+          messages: []
+        });
+      newChatroom.save().then(() => {
+        console.log('Chatroom created');
+      }).catch((err) => {
+        console.log(err);
+      });
+
+    }
+  })
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

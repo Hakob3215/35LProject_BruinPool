@@ -42,6 +42,24 @@ function RideRequestsPage() {
     }
   }, [navigate, setUser]); // Empty dependency array
 
+  const handleSelectRide = (otherUser) => {
+    // Here, send the selected ride request to the backend to create a chat room
+    fetch('/api/new-chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user, otherUser }),
+    }).then((response) => {
+      response.json().then((data) => {
+        console.log(data);
+        navigate('/message-center');
+      })}).catch((error) => { 
+        console.error('Error:', error);
+      });
+
+};
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Here, send the search parameters to the backend to fetch ride requests
@@ -103,9 +121,10 @@ function RideRequestsPage() {
             {rideRequests.map(request => (
               <div key={request.username} className="ride-request-item">
                 <h4>{request.username}</h4>
-                <h4>Date: {request.date}</h4>
+                <h4>Date: {new Date(request.date).toISOString().split('T')[0]}</h4>
                 <h4>Time: {request.startTime} - {request.endTime}</h4>
                 <h4>Location: {request.location}</h4>
+                <button onClick={() => handleSelectRide(request)}>Select Ride</button>
               </div>
             ))}
           </div>
