@@ -90,6 +90,8 @@ function HomePage() {
       }).then(() => {}).catch((error) => {
         console.error('Error:', error);
       });
+      // refresh the page to reflect the change
+      window.location.reload();
     } else {
       navigate('/requests'); // Navigate to RequestRide page if there's no ongoing request
     }
