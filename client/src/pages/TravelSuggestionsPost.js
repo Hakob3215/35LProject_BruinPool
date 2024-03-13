@@ -41,7 +41,7 @@ function TravelSuggestionsPost() {
       <h1>Create New Travel Suggestion</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Title of Travel Suggestion:</label>
+          <label id = "l2">Title of Travel Suggestion:</label>
           <input
             type="text"
             value={title}
@@ -50,7 +50,7 @@ function TravelSuggestionsPost() {
           />
         </div>
         <div className="form-group">
-          <label>Write your Suggestion:</label>
+          <label id = "l2" >Write your Suggestion:</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}

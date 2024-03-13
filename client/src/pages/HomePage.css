@@ -12,8 +12,14 @@
   border: 1px solid #ccc; /* Visual distinction, adjust as needed */
   height: 400px; /* Adjust based on the height of the map for alignment */
 }
-.left-sidebar h2, .right-sidebar h2 {
+.left-sidebar h2, .right-sidebar h2, .left-sidebar h3 {
   text-align: center; /* Center the text horizontally */
+}
+.left-sidebar h2 {
+  font-size: 40px;
+}
+.left-sidebar h3 {
+  font-size: 25px;
 }
 .map-container {
   flex-basis: 50.33%; /* Takes up a third of the parent container's width */

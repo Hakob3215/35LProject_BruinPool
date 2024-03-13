@@ -55,4 +55,10 @@
     display: flex;
     justify-content: space-between;
   }
+
+  #l1, #l2 {
+    text-align: center;
+  }
+  
+  
   
