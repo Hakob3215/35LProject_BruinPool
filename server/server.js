@@ -365,5 +365,5 @@ app.post('/api/message-center/send-message', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`BruinLearn listening at http://localhost:${port}`);
+  console.log(`BruinPool listening at http://localhost:${port}`);
 });
