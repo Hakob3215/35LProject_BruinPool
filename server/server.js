@@ -237,6 +237,20 @@ app.post('/api/new-chat', (req, res) => {
   })
 });
 
+// handle chatroom page opening 
+app.get('/api/chatroom', (req, res) => {
+  // get the chatroom data
+  chatLogModel.find({
+    // find the chatrooms that the user is a part of
+    users: {$in: [req.body.user.username]}
+  }).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    console.log(err);
+  });
+});
+
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
