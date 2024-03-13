@@ -88,14 +88,14 @@ function FirstPage({ handleSignInClick }) {
     <img src={whyUs}/>
     <div class="layer">
       <h3>Why Us?</h3>
-      <p> Our carefully curated system has allowed for over 3,500 successful and reiable trips, ensuring a safe and cose effective form of transportation. </p>
+      <p> Our carefully curated system has allowed for over 3,500 successful and reliable trips, ensuring a safe and cost effective form of transportation. </p>
     </div>
   </div>
   <div class="campus-col">
     <img src={yourPrice}/>
     <div class="layer">
       <h3>Your Price</h3>
-      <p> Name the driver, and we'll find one within your price range</p>
+      <p> Name the price, and we'll find a driver within your price range!</p>
     </div>
   </div>
 </div>
@@ -131,7 +131,7 @@ function FirstPage({ handleSignInClick }) {
 
 <section class="testimonials">
 <h1>What our clients say</h1>
-<p> Don't just listen to us, read our thousands of 5 star reviews!</p>
+<p> Don't just listen to us, read our thousands of five star reviews!</p>
   <div class="row">
   <div class="testimonial-col">
     <img src={review1}/>
@@ -144,7 +144,7 @@ function FirstPage({ handleSignInClick }) {
   <div class="testimonial-col">
     <img src={review2}/>
     <div>
-      <p> Iconic service with amazing people!</p>
+      <p> Iconic service with amazing people! Super easy to use.</p>
       <h3>Alexa Fosani</h3>
  
     </div>
@@ -162,7 +162,7 @@ function FirstPage({ handleSignInClick }) {
 
 <section class="footer">
   <h4>About Us</h4>
-  <p>We're just four students trying to help other save money, while doing good for our Earth at the same time. </p>
+  <p>We're just five students trying to help others save money, while doing good for our Earth at the same time. </p>
 
 </section>
 
