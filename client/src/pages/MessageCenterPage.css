@@ -1,69 +1,100 @@
-/* MessageCenterPage.css */
 .message-center-container {
   display: flex;
-  max-width: 800px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  background-color: #f0f0f0;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  height: 100vh;
 }
 
-.message-list, .current-message {
+.sidebar {
   flex: 1;
   padding: 20px;
-  overflow-y: auto;
+  background-color: #f0f0f0;
 }
 
-.message-list {
-  border-right: 1px solid #ccc;
-}
-
-.message-preview, .current-message .message {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.message-preview:hover, .current-message .message:hover {
-  background-color: #0056b3;
-}
-
-.current-message h2, .message-list h2 {
-  margin-bottom: 10px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  color: #333;
-}
-
-.current-message form {
+.conversation {
+  flex: 3;
+  padding: 20px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.conversation .title {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px; 
+  margin-bottom: 10px; 
+  width: 100%;
+}
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.sidebar ul li:hover {
+  background-color: #ddd;
+}
+
+.title {
+  text-align: center;
+}
+
+.conversation h2 {
+  margin-bottom: 10px;
+}
+
+.conversation ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.conversation ul .message {
+  background-color: #007bff; /* Blue background */
+  color: white;
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 15px; /* Padding */
+  margin-bottom: 10px; 
+  width: auto;
+  text-align: right; 
+
+}
+
+.conversation ul li:last-child {
+  margin-bottom: 0;
+}
+
+.message-input {
   margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 
-.current-message input[type="text"] {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  outline: none;
-  font-size: 16px;
+.message-input input {
+  padding: 10px;
+  width: calc(100% - 70px); /* Adjust based on button width */
+  margin-right: 10px;
 }
 
-.current-message button {
-  padding: 8px 15px;
-  border: none;
+.message-input button {
+  padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
-  border-radius: 20px;
+  border: none;
   cursor: pointer;
-  font-size: 16px;
-  margin-left: 10px;
+}
+.separator {
+  border-top: 1px solid #ccc;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.current-message button:hover {
+.message-input button:hover {
   background-color: #0056b3;
+}
+.message-divider {
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
