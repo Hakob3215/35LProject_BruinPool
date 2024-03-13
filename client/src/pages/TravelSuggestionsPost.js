@@ -23,6 +23,7 @@ function TravelSuggestionsPost() {
       )
     // Returns user back to TravelSuggestionsPage
       window.location.href = '/travel-suggestions';
+      alert("Successfully posted!")
     }).catch((error) => {
       console.error('Error:', error);
     });
