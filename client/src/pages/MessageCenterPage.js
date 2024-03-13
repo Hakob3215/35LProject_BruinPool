@@ -47,7 +47,7 @@ const MessageCenterPage = () => {
     }).catch((error) => {
       console.error('Error:', error);
     });
-  }, [user]);
+  }, [user, selectedConversation]);
 
   const handleConversationClick = (conversation) => {
     // time to fetch the messages from the backend
@@ -70,15 +70,26 @@ const MessageCenterPage = () => {
     });
   };
 
-  const handleSendMessage = () => {
-    if (newMessage.trim() === '') return;
-    const updatedConversations = conversations.map((conversation) =>
-      conversation.id === selectedConversation.id
-        ? { ...conversation, messages: [...conversation.messages, newMessage.trim()] }
-        : conversation
-    );
-    setSelectedConversation({ ...selectedConversation, messages: [...selectedConversation.messages, newMessage.trim()] });
-    setNewMessage('');
+  const handleSendMessage = (currentMessage) => {
+    // if the submit box is empty, don't send the message
+    if (currentMessage.trim() === '') return;
+
+    // else its time to send the message to the backend
+    fetch('/api/message-center/send-message', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user, otherUser: currentChatUser, content: newMessage })
+    }).then((response) => {
+      response.json().then((data) => {
+        // response is the updated chatlog, to be refreshed
+        setSelectedConversation(data);
+        // clear the input box
+        setNewMessage('');
+
+      })
+    })
   };
 
   return (
@@ -102,7 +113,7 @@ const MessageCenterPage = () => {
             <h2 className="title">{currentChatUser}</h2>
             {selectedConversation.length > 0 ? (
               <ul>
-                {selectedConversation.messages.map((message, index) => (
+                {selectedConversation.map((message, index) => (
                   message.sender === user.username ? (
                   <li key={index} className="message">
                     {message.content}
@@ -117,7 +128,7 @@ const MessageCenterPage = () => {
             ) : (
               <p>No messages yet</p>
             )}
-            <form className="message-input" onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }}>
+            <form className="message-input" onSubmit={(e) => { e.preventDefault(); handleSendMessage(newMessage); }}>
               <input
                 type="text"
                 placeholder={"Send a message to " + currentChatUser + "..."}

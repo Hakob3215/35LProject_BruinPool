@@ -284,7 +284,7 @@ app.post('/api/message-center/chat-users', (req, res) => {
       return {otherUser, lastMessage};
     });
     // sort the chatrooms by the time of the last message from latest to oldest
-    userList.sort((a, b) => b.lastMessage - a.lastMessage);
+    userList.sort((a, b) => new Date(b.lastMessage).getTime() - new Date(a.lastMessage).getTime());
     res.send(userList);
   }).catch((err) => {
     console.log(err);
@@ -301,6 +301,34 @@ app.post('/api/message-center/chat-messages', (req, res) => {
     console.log(err);
   });
   });
+
+// handle chatroom message sending
+app.post('/api/message-center/send-message', (req, res) => {
+  console.log("Message received!: ", req.body.content);
+  chatLogModel.findOneAndUpdate({
+    users: {$all: [req.body.user.username, req.body.otherUser]}
+  }, {
+    $push: {
+      messages: {
+        sender: req.body.user.username,
+        content: req.body.content,
+        timestamp: new Date()
+      }
+    },
+    $set: {
+      lastMessage: new Date()
+    }
+  }, {new: true}
+  ).then(updatedChatlog => {
+    if(!updatedChatlog){
+      res.send([]);
+      return;
+    }
+    res.send(updatedChatlog.messages);
+  }).catch((err) => {
+    console.log(err);
+  });
+});
 
 
 app.listen(port, () => {

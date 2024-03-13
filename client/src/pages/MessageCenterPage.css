@@ -14,7 +14,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 90%;
 }
 .conversation .title {
   border-bottom: 1px solid #ccc;
@@ -47,8 +47,10 @@
 
 .conversation ul {
   list-style-type: none;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
+
 
 .conversation ul .message {
   background-color: #007bff; /* Blue background */
@@ -57,17 +59,20 @@
   padding: 10px 15px; /* Padding */
   margin-bottom: 10px; 
   width: auto;
+  margin-left: auto;
+  margin-right: 10%;
   text-align: right; 
 
 }
 
 .conversation ul .other-message {
-  background-color: #808080; /* Gray background */
+  background-color: #d8d8d8; /* Gray background */
   color: black;
   border-radius: 20px; /* Rounded corners */
   padding: 10px 15px; /* Padding */
   margin-bottom: 10px; 
   width: auto;
+  align-self: flex-start;
   text-align: left; 
 }
 
