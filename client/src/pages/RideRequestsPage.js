@@ -29,6 +29,8 @@ function RideRequestsPage() {
   const [endTime, setEndTime] = useState('');
   const [location, setLocation] = useState('');
 
+  const [hasSearched, setHasSearched] = useState(false);
+
 
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
@@ -63,7 +65,9 @@ function RideRequestsPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Here, send the search parameters to the backend to fetch ride requests
-    
+
+    setHasSearched(true);
+    // For the message on screen
 
     fetch('/api/rides/search', {
       method: 'POST',
@@ -129,7 +133,7 @@ function RideRequestsPage() {
             ))}
           </div>
         ) : (
-          <h1>No ride requests found.</h1>
+          hasSearched ? <h2> No Requests Found </h2> : <h2> Please select a ride location and time </h2>
         )}
       </div>
     </div>
