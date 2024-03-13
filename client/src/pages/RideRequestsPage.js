@@ -70,7 +70,7 @@ function RideRequestsPage() {
     // For the message on screen
 
     if(endTime < startTime){
-      alert("End time must be after start time")
+      alert("End time must be after start time.")
       return;
     }
 
