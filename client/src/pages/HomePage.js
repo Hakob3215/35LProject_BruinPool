@@ -180,6 +180,7 @@ function HomePage() {
               <p>{request.location}</p>
               <p>{request.date.split('T')[0]}</p>
               <p>{convertMinutesToTime(request.startTime)} - {convertMinutesToTime(request.endTime)}</p>
+              <br></br>
         </div>
   ) : (
     // Do nothing if the request is the user's own request
