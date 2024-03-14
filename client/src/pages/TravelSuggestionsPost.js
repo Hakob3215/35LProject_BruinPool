@@ -1,10 +1,24 @@
 // TravelSuggestionsPost.js
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { UserContext } from '../UserContext';
+import { useNavigate } from 'react-router-dom';
 import './TravelSuggestionsPost.css';
 
 function TravelSuggestionsPost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
+
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (!storedUser) {
+      navigate('/SignIn');
+    } else {
+      setUser(storedUser);
+    }
+  }, [setUser, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
