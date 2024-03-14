@@ -4,6 +4,8 @@ import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
+
+
 const containerStyle = {
   flex: 1,
   height: '60vh',
@@ -138,7 +140,7 @@ function HomePage() {
   };
 
   return (
-    <LoadScriptNext googleMapsApiKey="AIzaSyCVnMRYNg4qGPr9gKOmy7GeeQJ98shDunE">
+    <LoadScriptNext googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
       <div className="homepage-container">
         <div className="left-sidebar">
           <h2>Welcome, {user ? user.fullname : "Guest"}!</h2>
