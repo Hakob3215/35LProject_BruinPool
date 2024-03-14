@@ -75,6 +75,8 @@ Afterwards, you should click `create/deploy database`, and once you do so, you s
 
 Now place this string in the `[MongoURL here]` portion from earlier, inside server/.env
 
+Also just to be sure, under `Network Access`, be sure to add your current IP address if not already inside. Alternatively, you can add a new IP, and click `Allow Access from Anywhere` to add a global IP, but only do this if you are sure.
+
 After you do either these steps, or use the database provided in the report, you should be able to connect to the database through your URL.
 
 Note that if you are using the provided URL, you can use an account with username and password both: `test` to log-in easily. Alternatively, you can create a new user as well.
