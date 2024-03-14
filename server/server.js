@@ -19,7 +19,7 @@ app.post('/api/users/login', (req, res) => {
   // check if request is received
   console.log('Sign In request received');
   // check if the data is correctly received
-  console.log(req.body.username, req.body.password);
+  // console.log(req.body.username, req.body.password);
   // check if the corresponding user exists in the database
   userModel.findOne({
     username: req.body.username,
@@ -364,7 +364,7 @@ app.post('/api/message-center/send-message', (req, res) => {
   
   // handle all ride-requests
   app.get('/api/all-requests', async (req, res) => {
-    console.log('All ride requests requested');
+  //  console.log('All ride requests requested');
     userModel.find({
       date: { $ne: null }
     }).then((data) => {
