@@ -23,7 +23,6 @@ function TravelSuggestionsPost() {
       )
     // Returns user back to TravelSuggestionsPage
       window.location.href = '/travel-suggestions';
-      alert("Successfully posted!")
     }).catch((error) => {
       console.error('Error:', error);
     });
@@ -56,7 +55,7 @@ function TravelSuggestionsPost() {
           ></textarea>
         </div>
         <div class="button-container">
-          <button type="button" onClick={handleSubmit}>Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
