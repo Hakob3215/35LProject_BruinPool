@@ -1,19 +1,19 @@
 .homepage-container {
   display: flex;
-  justify-content: center; /* Center children horizontally */
-  align-items: flex-start; /* Align children to the start vertically */
-  gap: 20px; /* Space between children */
+  justify-content: center; 
+  align-items: flex-start; 
+  gap: 20px;
   padding: 20px;
 }
 
 .left-sidebar, .right-sidebar {
-  flex: 1; /* Sidebars take up the remaining space equally */
+  flex: 1; 
   padding: 10px;
-  border: 1px solid #ccc; /* Visual distinction, adjust as needed */
-  height: auto; /* Adjust based on the height of the map for alignment */
+  border: 1px solid #ccc; 
+  height: auto;
 }
 .left-sidebar h2, .right-sidebar h2, .left-sidebar h3 {
-  text-align: center; /* Center the text horizontally */
+  text-align: center;
 }
 .left-sidebar h2 {
   font-size: 40px;
@@ -22,8 +22,8 @@
   font-size: 25px;
 }
 .map-container {
-  flex-basis: 50.33%; /* Takes up a third of the parent container's width */
-  height: 400px; /* Adjust height as needed */
+  flex-basis: 50.33%; 
+  height: 400px; 
 }
 
 .ride-request-buttons {
@@ -44,16 +44,16 @@
 }
 
 .request-button {
-  background-color: #4CAF50; /* Green, adjust as needed */
+  background-color: #4CAF50;
 }
 
 .cancel-button {
-  background-color: #f44336; /* Red, adjust as needed */
+  background-color: #f44336;
 }
 .left-sidebar {
   padding: 10px 20px;
-  border: 1px solid #ccc; /* Visual distinction, adjust as needed */
-  height: auto; /* Adjust based on content, or set a max-height */
-  overflow-y: auto; /* Adds scroll bar if content exceeds container height */
-  word-wrap: break-word; /* Ensures words break to prevent horizontal overflow */
+  border: 1px solid #ccc; 
+  height: auto; 
+  overflow-y: auto; 
+  word-wrap: break-word; 
 }

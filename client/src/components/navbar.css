@@ -1,18 +1,18 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* Adjust the alignment as needed */
+  align-items: flex-end; 
   background-color: #333;
   color: whiteblack;
-  padding: 0 10px; /* Adjust the padding as needed */
-  height: 135px; /* Adjust the height as needed */
+  padding: 0 10px; 
+  height: 135px;
 }
 
 
 
 
 .navbar-logo img {
-  width: 300px; /* Adjust the width as needed */
+  width: 300px; 
   height: 300px;
   margin-bottom: -123px;
   margin-right: 180px;
@@ -25,7 +25,7 @@
 }
 
 .nav-links li {
-  margin-left: 100px; /* Adjust the margin as needed */
+  margin-left: 100px; 
 }
 
 .nav-links a {
@@ -36,7 +36,7 @@
 
 .nav-links a:hover,
 .nav-active {
-  color: #04c2c9; /* Adjust the highlight color as needed */
+  color: #04c2c9; 
 }
 
 .welcome-message {

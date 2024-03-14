@@ -15,7 +15,7 @@ const center = {
   lat: 34.0717,
   lng: -118.4509,
 };
-const locationsCoordinates = {
+const locationsCoordinates = { // Coordinates for some popular locations in LA
   "LAX": { lat: 33.9416, lng: -118.4085 },
   "Burbank Airport": { lat: 34.2015, lng: -118.3597 },
   "Santa Monica": { lat: 34.0195, lng: -118.4912 },

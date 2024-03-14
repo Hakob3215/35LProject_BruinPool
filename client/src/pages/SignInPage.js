@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
-import './SignInPage.css'; // Make sure to create a corresponding CSS file
+import './SignInPage.css'; 
 import './HomePage.js';
 
 function SignInPage() {

@@ -76,5 +76,17 @@
     padding: 10px;
     border-radius: 5px;
     background-color: lightblue;
-    margin-top: 15px;
+    display: block;
+    text-align: center;
+    
+    
   }
+
+  #PasswordHeader {
+    text-align: center;
+  }
+  
+h2 {
+  text-align: center;
+  font-size: 40px;
+}

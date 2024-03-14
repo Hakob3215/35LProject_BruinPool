@@ -53,10 +53,10 @@
 
 
 .conversation ul .message {
-  background-color: #007bff; /* Blue background */
+  background-color: #007bff; 
   color: white;
-  border-radius: 20px; /* Rounded corners */
-  padding: 10px 15px; /* Padding */
+  border-radius: 20px; 
+  padding: 10px 15px; 
   margin-bottom: 10px; 
   width: auto;
   margin-left: auto;
@@ -66,10 +66,10 @@
 }
 
 .conversation ul .other-message {
-  background-color: #d8d8d8; /* Gray background */
+  background-color: #d8d8d8; 
   color: black;
-  border-radius: 20px; /* Rounded corners */
-  padding: 10px 15px; /* Padding */
+  border-radius: 20px; 
+  padding: 10px 15px;
   margin-bottom: 10px; 
   width: auto;
   align-self: flex-start;
@@ -89,7 +89,7 @@
 
 .message-input input {
   padding: 10px;
-  width: calc(100% - 70px); /* Adjust based on button width */
+  width: calc(100% - 70px); 
   margin-right: 10px;
 }
 

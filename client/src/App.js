@@ -10,7 +10,7 @@ import Navbar from './components/navbar';
 import TravelSuggestionsPage from './pages/TravelSuggestionsPage';
 import TravelSuggestionPost from './pages/TravelSuggestionsPost';
 
-import './App.css'; // Ensure your global styles are here
+import './App.css'; 
 import { UserProvider } from './UserContext';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
 
         
 
-        {/* Add more routes as needed */}
+        {}
       </Routes>
       </UserProvider>
     </Router>

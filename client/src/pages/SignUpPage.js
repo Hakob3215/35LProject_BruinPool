@@ -61,7 +61,7 @@ function SignUpPage() {
       <form onSubmit={handleSubmit} className="signup-form">
         <h2>Sign Up</h2>
         <div className="form-group">
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username" id = "PasswordHeader">Username:</label>
           <input
             type="text"
             id="username"
@@ -71,7 +71,7 @@ function SignUpPage() {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group" id = "PasswordHeader">
           <label htmlFor="email">Email:</label>
           <input
             type="text"
@@ -82,7 +82,7 @@ function SignUpPage() {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group" id = "PasswordHeader" >
           <label htmlFor="fullname">Full Name:</label>
           <input
             type="text"
@@ -94,7 +94,7 @@ function SignUpPage() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password" id = "PasswordHeader">Password:</label>
           <input
             type="password"
             id="password"
@@ -123,7 +123,7 @@ function SignUpPage() {
         </div>
         <button type="submit" className="signup-button" disabled={passwordError}>Register</button>
         {loginError && <p className="error-message">{loginError}</p>}
-        <a href="/" className='back-link'>Back to First Page</a>
+        <a href="/" className='back-link' >Back to First Page</a>
       </form>
     </div>
   );
