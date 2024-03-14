@@ -2,25 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './FirstPage.css';
 import logoImage from './images/logo.jpg'
-import happyCar from './images/happyCar.png'
-import yourPrice from './images/yourPrice.png'
-import whyUs from './images/whyUs.png'
-import review1 from './images/review1.png'
-import review2 from './images/review2.png'
 function FirstPage() {
 
   return (
     <div>
       <section className="header">
         <nav>
-          <a> <img id="logo" src={logoImage} /></a>
+          <img id="logo" src={logoImage} alt="logo"/>
           <div className="nav-links" id="navLinks">
           </div>
         </nav>
 
         <div className="text-box">
           <h1> BruinPool </h1>
-          <p>The only website to meet other carpooling college students!</p>
+          <p>The only website to meet other carpooling Bruins!</p>
           <div>
             <Link to="/SignIn" className="SignIn-btn">Sign In!</Link>
           </div>
@@ -36,99 +31,26 @@ function FirstPage() {
 
         <div className="row">
           <div className="course-col">
-            <h3>Become a Driver!</h3>
-            <p> Join our student carpool platform to make your commute cost-effective and eco-friendly. Whether you have extra seats or need a ride, become a driver to save on gas, parking, and reduce your carbon footprint. Sign up now to connect with fellow students and contribute to sustainable transportation.
+            <h3>Become a Rider!</h3>
+            <p> Join our platform to make your commute cost-effective and eco-friendly. Whether you have extra seats or need another rider, become a user to save on bills, parking, and reduce your carbon footprint. Sign up now to connect with fellow Bruins and contribute to sustainable transportation.
             </p>
           </div>
           <div className="course-col">
-            <h3>Find Students!</h3>
+            <h3>Find Bruins!</h3>
             <p>Escape campus traffic and public transport hassles by connecting with carpool companions on our student platform. Whether you're a freshman or a graduate student, find like-minded peers to share rides, split costs, and streamline your commute. Say goodbye to commuting woes and join a hassle-free carpool community today!
             </p>
           </div>
           <div className="course-col">
             <h3>Benefits!</h3>
-            <p>Join our student carpool program for financial savings, reduced environmental impact, and a sense of community. Cut commuting expenses, lower emissions, and connect with fellow students for a sustainable and enjoyable campus journey. Join today and make a positive impact on your campus and the planet!</p>
+            <p>Join our carpool program for financial savings, reduced environmental impact, and a sense of community. Cut commuting expenses, lower emissions, and connect with fellow Bruins for a sustainable and enjoyable campus journey. Join today and make a positive impact on your campus and the planet!</p>
           </div>
         </div>
       </section>
 
-      <section className="campus">
-        <h1>Our Goals and Operation</h1>
-        <p>What we're here to do. </p>
-        <div className="row">
-          <div className="campus-col">
-            <img src={happyCar} />
-            <div className="layer">
-              <h3>Choose who you ride with</h3>
-              <p> With over 250 carpools happening each day, you're guaranteed to find the perfect driver!</p>
-            </div>
-          </div>
-          <div className="campus-col">
-            <img src={whyUs} />
-            <div className="layer">
-              <h3>Why Us?</h3>
-              <p> Our carefully curated system has allowed for over 3,500 successful and reliable trips, ensuring a safe and cost-effective form of transportation. </p>
-            </div>
-          </div>
-          <div className="campus-col">
-            <img src={yourPrice} />
-            <div className="layer">
-              <h3>Your Price</h3>
-              <p> Name the price, and we'll find a driver within your price range!</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="facilities">
-        <h1>Our Community</h1>
-        <p>Join thousand of students just like you!</p>
-
-        <div className="row">
-          <div className="facilities-col">
-            <h3>Miles Traveled</h3>
-            <p> Over 63,000 miles traveled by students!</p>
-          </div>
-          <div className="facilities-col">
-            <h3>Money Saved</h3>
-            <p> $35,000 in gas saved!</p>
-          </div>
-          <div className="facilities-col">
-            <h3>Students Transported</h3>
-            <p> Join nearly 3,500 students using BruinPool!</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="testimonials">
-        <h1>What our clients say</h1>
-        <p> Don't just listen to us, read our thousands of five-star reviews!</p>
-        <div className="row">
-          <div className="testimonial-col">
-            <img src={review1} />
-            <div>
-              <p>Amazing and simple service! Will definitely use again. </p>
-              <h3>Ahmed Abbdulah</h3>
-            </div>
-          </div>
-          <div className="testimonial-col">
-            <img src={review2} />
-            <div>
-              <p> Iconic service with amazing people! Super easy to use.</p>
-              <h3>Alexa Fosani</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cta">
-        <h1>We can take you anywhere, as long as we find a carpooler!</h1>
-        <a href="">Contact us!</a>
-      </section>
 
       <section className="footer">
         <h4>About Us</h4>
-        <p>We're just five students trying to help others save money, while doing good for our Earth at the same time. </p>
+        <p>We're just five Bruins trying to help others save money, while doing good for our Earth at the same time. </p>
       </section>
     </div>
   );
