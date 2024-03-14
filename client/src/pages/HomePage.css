@@ -10,7 +10,7 @@
   flex: 1; /* Sidebars take up the remaining space equally */
   padding: 10px;
   border: 1px solid #ccc; /* Visual distinction, adjust as needed */
-  height: 400px; /* Adjust based on the height of the map for alignment */
+  height: auto; /* Adjust based on the height of the map for alignment */
 }
 .left-sidebar h2, .right-sidebar h2, .left-sidebar h3 {
   text-align: center; /* Center the text horizontally */

@@ -33,6 +33,7 @@ function convertMinutesToTime(minutes) {
 function HomePage() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
+  const [requests, setRequests] = useState([]);
 
   const [hasRequest, setHasRequest] = useState();
   const [location, setLocation] = useState('');
@@ -48,6 +49,24 @@ function HomePage() {
       setUser(storedUser);
     }
   }, [setUser, navigate]);
+
+  useEffect(() => {
+    fetch('/api/all-requests', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((response) => {
+      response.json().then((data) => {
+        setRequests(data);
+        console.log(data);
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    }).catch((error) => {
+      console.error('Error:', error);
+    });
+  }, []);
 
   useEffect(() => {
     if (user && user.username) {
@@ -139,12 +158,25 @@ function HomePage() {
         </div>
         <div className="right-sidebar">
           <h2>Recent Requests</h2>
-          <p>Here's some random info about recent ride requests.</p>
+          {requests.map((request, index) => 
+             request.username !== user.username ? (
+              <div key={index}>
+              <h3>{request.username}</h3>
+              <p>{request.location}</p>
+              <p>{request.date.split('T')[0]}</p>
+              <p>{convertMinutesToTime(request.startTime)} - {convertMinutesToTime(request.endTime)}</p>
+        </div>
+  ) : (
+    // Do nothing if the request is the user's own request
+    null
+  )
+)}
         </div>
       </div>
     </LoadScriptNext>
   );
 }
+
 
 export default HomePage;
 

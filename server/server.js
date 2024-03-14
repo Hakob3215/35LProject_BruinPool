@@ -362,6 +362,24 @@ app.post('/api/message-center/send-message', (req, res) => {
     }
   });
   
+  // handle all ride-requests
+  app.get('/api/all-requests', async (req, res) => {
+    console.log('All ride requests requested');
+    userModel.find({
+      date: { $ne: null }
+    }).then((data) => {
+      const userRequests = data.map((user) => {
+        return {
+          username: user.username,
+          date: user.date,
+          startTime: user.startTime,
+          endTime: user.endTime,
+          location: user.location
+        }
+      });
+      res.send(userRequests);
+    })
+  });
 
 
 app.listen(port, () => {
