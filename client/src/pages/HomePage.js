@@ -144,11 +144,10 @@ function HomePage() {
           <h2>Welcome, {user ? user.fullname : "Guest"}!</h2>
           <h3>Getting Started:</h3>
           <ul>
-            <li><strong>Request a Ride:</strong> Click the "Request Ride" button below the map. Enter your destination and preferred time.</li>
+            <li><strong>Request a Ride:</strong> Click the "Request Ride" button below the map. Enter your destination and preferred time. When searching for requests, your request is also added to the pool of available requests</li>
             <li><strong>Find a Match:</strong> Look at the "Recent Requests" section on the right sidebar for potential ride matches.</li>
             <li><strong>Chat and Coordinate:</strong> After finding a match, use the messaging feature to discuss details like pickup points and shared costs.</li>
           </ul>
-          <p>Use these features to connect with fellow users, plan your rides, and contribute to our community's eco-friendly travel initiatives!</p>
         </div>
         <div className="map-container">
           <GoogleMap
