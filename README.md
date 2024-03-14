@@ -6,8 +6,6 @@
   <br>
 </h1>
 
-===
-
 Public Repository Link for History:
 https://github.com/Hakob3215/35LProject_BruinPool
 
