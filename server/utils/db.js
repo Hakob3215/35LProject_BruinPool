@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+require('dotenv').config();
+
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb+srv://bruinpool:mdjf8ElwBpfnEcYJ@bruinpoolcluster.em9znww.mongodb.net/userData?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGO_CONNECTION_STRING)
 .then(() => console.log('Database Connected'))
 .catch(err => console.log(err));
 
