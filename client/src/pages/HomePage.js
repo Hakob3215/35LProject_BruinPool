@@ -176,7 +176,7 @@ function HomePage() {
           {requests.map((request, index) => 
              request.username !== user.username ? (
               <div key={index}>
-              <h3>{request.username}</h3>
+              <h4>{request.username}</h4>
               <p>{request.location}</p>
               <p>{request.date.split('T')[0]}</p>
               <p>{convertMinutesToTime(request.startTime)} - {convertMinutesToTime(request.endTime)}</p>
