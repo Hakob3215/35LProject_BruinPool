@@ -1,4 +1,11 @@
-BruinPool
+<h1 align="center">
+  <br>
+  <img src="client/public/publiclogo.png" alt="BruinPool" width="200"></a>
+  <br>
+  <b>BruinPool</b>
+  <br>
+</h1>
+
 ===
 
 Public Repository Link for History:
