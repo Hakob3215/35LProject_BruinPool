@@ -74,6 +74,7 @@ function SignInPage() {
         </div>
         <button type="submit" className="signin-button">Sign In</button>
         {loginError && <p className="error-message">{loginError}</p>}
+        <a href="/" className='back-link'>Back to First Page</a>
       </form>
     </div>
     

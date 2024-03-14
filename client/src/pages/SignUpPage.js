@@ -123,6 +123,7 @@ function SignUpPage() {
         </div>
         <button type="submit" className="signup-button" disabled={passwordError}>Register</button>
         {loginError && <p className="error-message">{loginError}</p>}
+        <a href="/" className='back-link'>Back to First Page</a>
       </form>
     </div>
   );

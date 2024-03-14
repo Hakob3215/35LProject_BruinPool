@@ -44,6 +44,7 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    margin-bottom: 20px;
   }
   
   .signup-button:hover {
@@ -65,4 +66,15 @@
   
   .link-to-signin a:hover {
     color: #0056b3;
+  }
+
+  .back-link {
+    color: blue;
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: lightblue;
+    margin-top: 15px;
   }

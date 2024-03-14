@@ -40,6 +40,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-bottom: 20px;
   }
   
   .signin-button:hover {
@@ -54,3 +55,13 @@
 
   }
   
+  .back-link {
+    color: blue;
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: lightblue;
+    margin-top: 15px;
+  }
