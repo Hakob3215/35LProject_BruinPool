@@ -129,11 +129,11 @@ CS 35L, Winter 2024
 UCLA  
 
 **Team**  
-Hakob Atajyan - Hakob3215
-Arthur Baghdasian - underlyingtech21
-Eric Chakhoyan - echa2162
-Ajay Krishnan - amkrishnan28
-Alan Lin - alanlin0068
+Hakob Atajyan - Hakob3215  
+Arthur Baghdasian - underlyingtech21  
+Eric Chakhoyan - echa2162  
+Ajay Krishnan - amkrishnan28  
+Alan Lin - alanlin0068  
 
 **Appendix**  
 README Layout & organization reference: https://github.com/bliutech/RendeYou  
